@@ -23,9 +23,3 @@ To clone the repository and get started:
    ```
    cd Website-Guesthouse
    ```
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-For any inquiries or feedback, please reach out to us via the contact form provided on the website or email us at [contact@guesthouse.com](mailto:contact@guesthouse.com).
