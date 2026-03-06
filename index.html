@@ -58,7 +58,7 @@
 <body class="font-sans text-gray-700 antialiased bg-stone-50">
 
     <!-- Navigation -->
-    <nav id="navbar" class="w-full z-50 transition-all duration-300 bg-white backdrop-blur-md shadow-sm fixed top-0">       
+    <nav id="navbar" class="w-full z-50 transition-all duration-300 bg-white backdrop-blur-md shadow-sm">       
          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
@@ -70,27 +70,17 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" data-i18n="nav.about" class="text-gray-600 hover:text-green-700 font-medium transition-colors">About</a>
-                    <a href="#rooms" data-i18n="nav.rooms" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Rooms</a>
-                    <a href="#experience" data-i18n="nav.experience" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Experience</a>
-                    <a href="#location" data-i18n="nav.location" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Location</a>
-                    
-                    <!-- Language Toggle Desktop -->
-                    <button onclick="toggleLang()" class="lang-toggle-btn flex items-center gap-2 text-gray-600 hover:text-green-700 font-bold transition-colors bg-gray-100 hover:bg-green-50 px-3 py-1.5 rounded-full border border-gray-200">
-                        <i class="fa-solid fa-globe"></i> <span>KA</span>
-                    </button>
-
+                    <a href="#about" class="text-gray-600 hover:text-green-700 font-medium transition-colors">About</a>
+                    <a href="#rooms" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Rooms</a>
+                    <a href="#experience" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Experience</a>
+                    <a href="#location" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Location</a>
                     <a href="https://wa.me/995511106285" target="_blank" class="bg-green-700 hover:bg-green-800 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-xl flex items-center gap-2 transform hover:-translate-y-0.5">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> <span data-i18n="nav.book">Book Now</span>
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Book Now
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center gap-4">
-                    <!-- Language Toggle Mobile -->
-                    <button onclick="toggleLang()" class="lang-toggle-btn flex items-center gap-1 text-gray-600 font-bold border border-gray-200 px-2 py-1 rounded">
-                        <i class="fa-solid fa-globe"></i> <span>KA</span>
-                    </button>
+                <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-gray-600 hover:text-green-700 focus:outline-none p-2">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
@@ -101,12 +91,12 @@
         <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
             <div class="px-4 pt-2 pb-6 space-y-1 shadow-lg">
-                <a href="#about" data-i18n="nav.about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">About Us</a>
-                <a href="#rooms" data-i18n="nav.rooms" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Rooms</a>
-                <a href="#experience" data-i18n="nav.experience" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Experience</a>
-                <a href="#location" data-i18n="nav.location" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Location</a>
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">About Us</a>
+                <a href="#rooms" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Rooms</a>
+                <a href="#experience" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Experience</a>
+                <a href="#location" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Location</a>
                 <a href="https://wa.me/995511106285" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold text-white bg-green-600 hover:bg-green-700">
-                    <i class="fa-brands fa-whatsapp mr-2"></i> <span data-i18n="nav.bookWa">Book via WhatsApp</span>
+                    <i class="fa-brands fa-whatsapp mr-2"></i> Book via WhatsApp
                 </a>
             </div>
         </div>
@@ -124,21 +114,21 @@
         </div>
 
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
-            <span data-i18n="hero.welcome" class="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-semibold tracking-wide mb-6 fade-in-up" style="animation-delay: 0.1s;">
+            <span class="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-semibold tracking-wide mb-6 fade-in-up" style="animation-delay: 0.1s;">
                 WELCOME TO OUR
             </span>
-            <h1 data-i18n="hero.title" class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight fade-in-up shadow-sm" style="animation-delay: 0.3s;">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight fade-in-up shadow-sm" style="animation-delay: 0.3s;">
                 Authentic Georgian <br/><span class="text-yellow-400 italic">Guesthouse</span>
             </h1>
-            <p data-i18n="hero.subtitle" class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed fade-in-up" style="animation-delay: 0.5s;">
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed fade-in-up" style="animation-delay: 0.5s;">
                 Escape the city and unwind in our family-run guesthouse. Enjoy homemade wine, mountain views, and the true taste of Georgia.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style="animation-delay: 0.7s;">
                 <a href="https://wa.me/995511106285" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105 shadow-xl flex items-center justify-center gap-3">
-                    <i class="fa-brands fa-whatsapp text-2xl"></i> <span data-i18n="nav.bookWa">Book via WhatsApp</span>
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> Book via WhatsApp
                 </a>
                 <a href="#about" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center">
-                    <span data-i18n="hero.explore">Explore More</span>
+                    Explore More
                 </a>
             </div>
         </div>
@@ -163,39 +153,39 @@
                                     <i class="fa-solid fa-users text-2xl"></i>
                                 </div>
                                 <div>
-                                    <p data-i18n="about.capacity" class="text-sm text-gray-500 font-semibold">Capacity</p>
-                                    <p data-i18n="about.guests" class="text-xl font-bold text-gray-900">Up to 8 Guests</p>
+                                    <p class="text-sm text-gray-500 font-semibold">Capacity</p>
+                                    <p class="text-xl font-bold text-gray-900">Up to 8 Guests</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2">
-                    <h2 data-i18n="about.story" class="text-green-800 font-bold tracking-widest text-sm uppercase mb-3">Our Story</h2>
-                    <h3 data-i18n="about.title" class="text-4xl font-serif font-bold text-gray-900 mb-6 leading-tight">A Home Away From Home in the Mountains</h3>
-                    <p data-i18n="about.p1" class="text-gray-600 mb-6 text-lg leading-relaxed">
+                    <h2 class="text-green-800 font-bold tracking-widest text-sm uppercase mb-3">Our Story</h2>
+                    <h3 class="text-4xl font-serif font-bold text-gray-900 mb-6 leading-tight">A Home Away From Home in the Mountains</h3>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
                         Situated just 50-55 km from Kutaisi and close to the E60 highway, <strong>Ubisa Family Guesthouse</strong> is your perfect stopover on a Georgian road trip or a dedicated escape from city life.
                     </p>
-                    <p data-i18n="about.p2" class="text-gray-600 mb-8 text-lg leading-relaxed">
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
                         We offer a unique opportunity to experience authentic local life. My family prepares delicious dishes from Georgian cuisine, including our famous Khachapuri and homemade wine. Whether you want to hike, fish, or simply relax on the terrace, our doors are open.
                     </p>
                     
                     <div class="grid grid-cols-2 gap-6">
                         <div class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-green-600 mt-1"></i>
-                            <span data-i18n="about.f1" class="text-gray-700 font-medium">Family Run</span>
+                            <span class="text-gray-700 font-medium">Family Run</span>
                         </div>
                         <div class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-green-600 mt-1"></i>
-                            <span data-i18n="about.f2" class="text-gray-700 font-medium">Mountain Views</span>
+                            <span class="text-gray-700 font-medium">Mountain Views</span>
                         </div>
                         <div class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-green-600 mt-1"></i>
-                            <span data-i18n="about.f3" class="text-gray-700 font-medium">Homemade Wine</span>
+                            <span class="text-gray-700 font-medium">Homemade Wine</span>
                         </div>
                         <div class="flex items-start gap-3">
                             <i class="fa-solid fa-check text-green-600 mt-1"></i>
-                            <span data-i18n="about.f4" class="text-gray-700 font-medium">Free WiFi</span>
+                            <span class="text-gray-700 font-medium">Free WiFi</span>
                         </div>
                     </div>
                 </div>
@@ -207,9 +197,9 @@
     <section id="rooms" class="py-20 bg-stone-50 bg-gray-200 border-t border-stone-100">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 data-i18n="rooms.acc" class="text-green-900 font-bold tracking-widest text-sm uppercase mb-3">Accommodation</h2>
-                <h3 data-i18n="rooms.title" class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Our Comfortable Rooms</h3>
-                <p data-i18n="rooms.subtitle" class="text-gray-600 text-lg">We have three spacious bedrooms, perfect for couples, families, or groups up to 8 people. Each room features a sitting area and mountain views.</p>
+                <h2 class="text-green-900 font-bold tracking-widest text-sm uppercase mb-3">Accommodation</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Our Comfortable Rooms</h3>
+                <p class="text-gray-600 text-lg">We have three spacious bedrooms, perfect for couples, families, or groups up to 8 people. Each room features a sitting area and mountain views.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -222,11 +212,11 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h4 data-i18n="rooms.r1Title" class="text-xl font-serif font-bold text-gray-900 mb-2">Double Room Private Bathroom</h4>
-                        <p data-i18n="rooms.r1Desc" class="text-gray-600 text-sm mb-4">A cozy room featuring a comfortable double bed, sitting area, and access to a shared balcony with stunning views.</p>
+                        <h4 class="text-xl font-serif font-bold text-gray-900 mb-2">Double Room Private Bathroom</h4>
+                        <p class="text-gray-600 text-sm mb-4">A cozy room featuring a comfortable double bed, sitting area, and access to a shared balcony with stunning views.</p>
                         <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <span class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i><span data-i18n="rooms.r1Guests">2 Guests + Child</span></span>
-                            <a href="https://wa.me/995511106285" target="_blank" class="text-green-700 font-medium hover:text-green-900 text-sm" data-i18n="rooms.check">Check Availability &rarr;</a>
+                            <span class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests + Child</span>
+                            <a href="https://wa.me/995511106285" target="_blank" class="text-green-700 font-medium hover:text-green-900 text-sm">Check Availability &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -240,11 +230,11 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h4 data-i18n="rooms.r2Title" class="text-xl font-serif font-bold text-gray-900 mb-2">Double Room</h4>
-                        <p data-i18n="rooms.r2Desc" class="text-gray-600 text-sm mb-4">Spacious accommodation perfect for families. Includes a sitting area and plenty of natural light.</p>
+                        <h4 class="text-xl font-serif font-bold text-gray-900 mb-2">Double Room</h4>
+                        <p class="text-gray-600 text-sm mb-4">Spacious accommodation perfect for families. Includes a sitting area and plenty of natural light.</p>
                         <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <span class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i><span data-i18n="rooms.r2Guests">2 Guests</span></span>
-                            <a href="https://wa.me/995511106285" target="_blank" class="text-green-700 font-medium hover:text-green-900 text-sm" data-i18n="rooms.check">Check Availability &rarr;</a>
+                            <span class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests</span>
+                            <a href="https://wa.me/995511106285" target="_blank" class="text-green-700 font-medium hover:text-green-900 text-sm">Check Availability &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -258,11 +248,11 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h4 data-i18n="rooms.r3Title" class="text-xl font-serif font-bold text-gray-900 mb-2">Twin Room</h4>
-                        <p data-i18n="rooms.r3Desc" class="text-gray-600 text-sm mb-4">Ideal for friends or solo travelers, featuring comfortable twin beds and a relaxing atmosphere.</p>
+                        <h4 class="text-xl font-serif font-bold text-gray-900 mb-2">Twin Room</h4>
+                        <p class="text-gray-600 text-sm mb-4">Ideal for friends or solo travelers, featuring comfortable twin beds and a relaxing atmosphere.</p>
                         <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <span class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i><span data-i18n="rooms.r2Guests">2 Guests</span></span>
-                            <a href="https://wa.me/995511106285" target="_blank" class="text-green-700 font-medium hover:text-green-900 text-sm" data-i18n="rooms.check">Check Availability &rarr;</a>
+                            <span class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests</span>
+                            <a href="https://wa.me/995511106285" target="_blank" class="text-green-700 font-medium hover:text-green-900 text-sm">Check Availability &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -274,8 +264,8 @@
     <section id="experience" class="py-20 bg-stone-100">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 data-i18n="exp.title" class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Experience</h2>
-                <p data-i18n="exp.subtitle" class="text-gray-600 text-lg">Everything you need for a relaxing stay in the heart of nature.</p>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Experience</h2>
+                <p class="text-gray-600 text-lg">Everything you need for a relaxing stay in the heart of nature.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -284,8 +274,8 @@
                     <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors">
                         <i class="fa-solid fa-utensils text-2xl text-green-700 group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 data-i18n="exp.c1Title" class="text-xl font-bold text-gray-900 mb-3">Authentic Cuisine</h3>
-                    <p data-i18n="exp.c1Desc" class="text-gray-600">Start your day with a varied breakfast of hot dishes and freshly baked pastries. Try our delicious homemade Khachapuri.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Authentic Cuisine</h3>
+                    <p class="text-gray-600">Start your day with a varied breakfast of hot dishes and freshly baked pastries. Try our delicious homemade Khachapuri.</p>
                 </div>
 
                 <!-- Card 2 -->
@@ -293,8 +283,8 @@
                     <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-yellow-600 transition-colors">
                         <i class="fa-solid fa-wine-glass text-2xl text-green-700 group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 data-i18n="exp.c2Title" class="text-xl font-bold text-gray-900 mb-3">Family Wine</h3>
-                    <p data-i18n="exp.c2Desc" class="text-gray-600">No Georgian feast is complete without wine. Taste the wine made with love and tradition right here by our family.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Family Wine</h3>
+                    <p class="text-gray-600">No Georgian feast is complete without wine. Taste the wine made with love and tradition right here by our family.</p>
                 </div>
 
                 <!-- Card 3 -->
@@ -302,8 +292,8 @@
                     <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors">
                         <i class="fa-solid fa-mountain-sun text-2xl text-green-700 group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 data-i18n="exp.c3Title" class="text-xl font-bold text-gray-900 mb-3">Nature & Views</h3>
-                    <p data-i18n="exp.c3Desc" class="text-gray-600">Rooms feature balconies with stunning mountain views. Explore the garden, go fishing nearby, or enjoy hiking trails.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Nature & Views</h3>
+                    <p class="text-gray-600">Rooms feature balconies with stunning mountain views. Explore the garden, go fishing nearby, or enjoy hiking trails.</p>
                 </div>
                 
                  <!-- Card 4 -->
@@ -311,8 +301,8 @@
                     <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-yellow-600 transition-colors">
                         <i class="fa-solid fa-fire-burner text-2xl text-green-700 group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 data-i18n="exp.c4Title" class="text-xl font-bold text-gray-900 mb-3">BBQ Facilities</h3>
-                    <p data-i18n="exp.c4Desc" class="text-gray-600">Make the most of the sunny weather with our barbecue facilities, perfect for a pleasant evening with friends or family.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">BBQ Facilities</h3>
+                    <p class="text-gray-600">Make the most of the sunny weather with our barbecue facilities, perfect for a pleasant evening with friends or family.</p>
                 </div>
 
                 <!-- Card 5 -->
@@ -320,8 +310,8 @@
                     <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors">
                         <i class="fa-solid fa-wifi text-2xl text-green-700 group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 data-i18n="exp.c5Title" class="text-xl font-bold text-gray-900 mb-3">Modern Amenities</h3>
-                    <p data-i18n="exp.c5Desc" class="text-gray-600">Stay connected with complimentary WiFi throughout the property. We also offer free secure parking for your vehicle.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Modern Amenities</h3>
+                    <p class="text-gray-600">Stay connected with complimentary WiFi throughout the property. We also offer free secure parking for your vehicle.</p>
                 </div>
 
                 <!-- Card 6 -->
@@ -329,8 +319,8 @@
                     <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-yellow-600 transition-colors">
                         <i class="fa-solid fa-bed text-2xl text-green-700 group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 data-i18n="exp.c6Title" class="text-xl font-bold text-gray-900 mb-3">Comfortable Rooms</h3>
-                    <p data-i18n="exp.c6Desc" class="text-gray-600">Three spacious bedrooms, each with a sitting area. Perfect for larger groups or families up to 8 people.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Comfortable Rooms</h3>
+                    <p class="text-gray-600">Three spacious bedrooms, each with a sitting area. Perfect for larger groups or families up to 8 people.</p>
                 </div>
             </div>
         </div>
@@ -342,8 +332,9 @@
             <div class="flex flex-col md:flex-row gap-12 items-start mb-12">
                 
                 <!-- Summary Column -->
+                <!-- UPDATED: Made sticky behavior only apply to desktop (md:sticky) so it doesn't overlap on mobile -->
                 <div class="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left md:sticky md:top-28 z-10">
-                    <h2 data-i18n="reviews.title" class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Guest Reviews</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Guest Reviews</h2>
                     <div class="flex items-center gap-4 mb-2">
                         <span class="text-5xl font-bold text-gray-900">4.9</span>
                         <div class="flex flex-col">
@@ -354,15 +345,15 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star-half-stroke"></i>
                             </div>
-                            <span data-i18n="reviews.based" class="text-sm text-gray-500 mt-1 font-medium">Based on Google Reviews</span>
+                            <span class="text-sm text-gray-500 mt-1 font-medium">Based on Google Reviews</span>
                         </div>
                     </div>
-                    <p data-i18n="reviews.desc" class="text-gray-600 mb-6 leading-relaxed">See what our guests from all over the world have to say about their stay at Ubisa Family Guesthouse.</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">See what our guests from all over the world have to say about their stay at Ubisa Family Guesthouse.</p>
                     
-                    <!-- Review Links -->
+                    <!-- Review Links (With Pink Hover) -->
                     <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                         <a href="https://www.google.com/maps/search/Ubisa+Family+Guesthouse" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 bg-white border border-gray-200 rounded-full font-medium text-gray-700 hover:text-pink-600 hover:border-pink-300 hover:bg-pink-50 transition-all duration-300 shadow-sm hover:shadow-md">
-                            <i class="fa-brands fa-google text-blue-500 text-xl"></i> <span data-i18n="reviews.write">Write a Review</span>
+                            <i class="fa-brands fa-google text-blue-500 text-xl"></i> Write a Review
                         </a>
                     </div>
                 </div>
@@ -377,7 +368,7 @@
                                 <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-lg">M</div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 leading-none">Marc</h4>
-                                    <span class="text-xs text-gray-500" data-i18n="reviews.local">Local Guide</span>
+                                    <span class="text-xs text-gray-500">Local Guide</span>
                                 </div>
                                 <i class="fa-brands fa-google text-gray-200 ml-auto text-xl"></i>
                             </div>
@@ -393,7 +384,7 @@
                                 <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold text-lg">J</div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 leading-none">Jana</h4>
-                                    <span class="text-xs text-gray-500">2 <span data-i18n="reviews.revs">reviews</span></span>
+                                    <span class="text-xs text-gray-500">2 reviews</span>
                                 </div>
                                 <i class="fa-brands fa-google text-gray-200 ml-auto text-xl"></i>
                             </div>
@@ -409,7 +400,7 @@
                                 <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold text-lg">T</div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 leading-none">Talal</h4>
-                                    <span class="text-xs text-gray-500">5 <span data-i18n="reviews.revs">reviews</span></span>
+                                    <span class="text-xs text-gray-500">5 reviews</span>
                                 </div>
                                 <i class="fa-brands fa-google text-gray-200 ml-auto text-xl"></i>
                             </div>
@@ -425,7 +416,7 @@
                                 <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-lg">J</div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 leading-none">Josephine</h4>
-                                    <span class="text-xs text-gray-500">12 <span data-i18n="reviews.revs">reviews</span></span>
+                                    <span class="text-xs text-gray-500">12 reviews</span>
                                 </div>
                                 <i class="fa-brands fa-google text-gray-200 ml-auto text-xl"></i>
                             </div>
@@ -444,7 +435,7 @@
     <!-- Visual Divider -->
     <div class="h-64 bg-fixed bg-center bg-cover relative" style="background-image: url(source/supra.png);">        
         <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <h2 data-i18n="divider" class="text-white font-serif text-3xl md:text-5xl font-bold tracking-wider">Unwind in <span class="text-yellow-400">Ubisa</span></h2>
+            <h2 class="text-white font-serif text-3xl md:text-5xl font-bold tracking-wider">Unwind in <span class="text-yellow-400">Ubisa</span></h2>
         </div>
     </div>
 
@@ -466,8 +457,8 @@
                 </div>
 
                 <div class="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center">
-                    <h2 data-i18n="loc.title" class="text-3xl font-serif font-bold text-gray-900 mb-6">Get in Touch</h2>
-                    <p data-i18n="loc.desc" class="text-gray-600 mb-8">We are conveniently located just 50-55 km from Kutaisi, near the E60 highway. Ready to book your stay?</p>
+                    <h2 class="text-3xl font-serif font-bold text-gray-900 mb-6">Get in Touch</h2>
+                    <p class="text-gray-600 mb-8">We are conveniently located just 50-55 km from Kutaisi, near the E60 highway. Ready to book your stay?</p>
 
                     <div class="space-y-6">
                         <div class="flex items-center gap-4">
@@ -475,7 +466,7 @@
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
-                                <p data-i18n="loc.geo" class="text-sm text-gray-500">Georgia (GEO)</p>
+                                <p class="text-sm text-gray-500">Georgia (GEO)</p>
                                 <a href="tel:+995511106285" class="text-lg font-bold text-gray-900 hover:text-green-700 transition-colors">+ 995 511 106285</a>
                             </div>
                         </div>
@@ -485,7 +476,7 @@
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
-                                <p data-i18n="loc.ger" class="text-sm text-gray-500">Germany (DE)</p>
+                                <p class="text-sm text-gray-500">Germany (DE)</p>
                                 <a href="tel:+4915254399728" class="text-lg font-bold text-gray-900 hover:text-green-700 transition-colors">+ 49 152 54399728</a>
                             </div>
                         </div>
@@ -495,7 +486,7 @@
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div>
-                                <p data-i18n="loc.email" class="text-sm text-gray-500">Email Us</p>
+                                <p class="text-sm text-gray-500">Email Us</p>
                                 <a href="mailto:giorgisebiskveradze123@gmail.com" class="text-lg font-bold text-gray-900 hover:text-green-700 transition-colors">giorgisebiskveradze123@gmail.com</a>
                             </div>
                         </div>
@@ -504,7 +495,7 @@
                     <div class="mt-10">
                         <a href="https://wa.me/995511106285" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-lg shadow-lg flex items-center justify-center gap-3 transition-transform hover:-translate-y-1">
                             <i class="fa-brands fa-whatsapp text-2xl"></i>
-                            <span data-i18n="loc.chat">Chat & Book Direct</span>
+                            Chat & Book Direct
                         </a>
                     </div>
                 </div>
@@ -521,10 +512,10 @@
             </div>
 
             <div class="flex flex-wrap justify-center gap-8 mb-8 text-sm font-medium text-gray-300 uppercase tracking-widest">
-                <a href="#about" data-i18n="nav.about" class="hover:text-white transition-colors">About</a>
-                <a href="#rooms" data-i18n="nav.rooms" class="hover:text-white transition-colors">Rooms</a>
-                <a href="#experience" data-i18n="nav.experience" class="hover:text-white transition-colors">Experience</a>
-                <a href="#location" data-i18n="nav.location" class="hover:text-white transition-colors">Contact</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#rooms" class="hover:text-white transition-colors">Rooms</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#location" class="hover:text-white transition-colors">Contact</a>
             </div>
 
             <div class="flex gap-6 mb-8">
@@ -543,151 +534,12 @@
             </div>
 
             <div class="border-t border-gray-800 w-full pt-8 text-center text-gray-500 text-xs">
-                <p data-i18n="footer.rights">&copy; 2024 Ubisa Family Guesthouse. All rights reserved.</p>
+                <p>&copy; 2024 Ubisa Family Guesthouse. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- i18next Scripts -->
-    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
-    <script>
-        // Dictionary containing all our translations
-        const resources = {
-            en: {
-                translation: {
-                    nav: {
-                        about: "About", rooms: "Rooms", experience: "Experience", location: "Location", book: "Book Now", bookWa: "Book via WhatsApp"
-                    },
-                    hero: {
-                        welcome: "WELCOME TO OUR",
-                        title: "Authentic Georgian <br/><span class='text-yellow-400 italic'>Guesthouse</span>",
-                        subtitle: "Escape the city and unwind in our family-run guesthouse. Enjoy homemade wine, mountain views, and the true taste of Georgia.",
-                        explore: "Explore More"
-                    },
-                    about: {
-                        capacity: "Capacity", guests: "Up to 8 Guests", story: "Our Story",
-                        title: "A Home Away From Home in the Mountains",
-                        p1: "Situated just 50-55 km from Kutaisi and close to the E60 highway, <strong>Ubisa Family Guesthouse</strong> is your perfect stopover on a Georgian road trip or a dedicated escape from city life.",
-                        p2: "We offer a unique opportunity to experience authentic local life. My family prepares delicious dishes from Georgian cuisine, including our famous Khachapuri and homemade wine. Whether you want to hike, fish, or simply relax on the terrace, our doors are open.",
-                        f1: "Family Run", f2: "Mountain Views", f3: "Homemade Wine", f4: "Free WiFi"
-                    },
-                    rooms: {
-                        acc: "Accommodation", title: "Our Comfortable Rooms",
-                        subtitle: "We have three spacious bedrooms, perfect for couples, families, or groups up to 8 people. Each room features a sitting area and mountain views.",
-                        r1Title: "Double Room Private Bathroom",
-                        r1Desc: "A cozy room featuring a comfortable double bed, sitting area, and access to a shared balcony with stunning views.",
-                        r1Guests: "2 Guests + Child", check: "Check Availability &rarr;",
-                        r2Title: "Double Room", r2Desc: "Spacious accommodation perfect for families. Includes a sitting area and plenty of natural light.", r2Guests: "2 Guests",
-                        r3Title: "Twin Room", r3Desc: "Ideal for friends or solo travelers, featuring comfortable twin beds and a relaxing atmosphere."
-                    },
-                    exp: {
-                        title: "Experience", subtitle: "Everything you need for a relaxing stay in the heart of nature.",
-                        c1Title: "Authentic Cuisine", c1Desc: "Start your day with a varied breakfast of hot dishes and freshly baked pastries. Try our delicious homemade Khachapuri.",
-                        c2Title: "Family Wine", c2Desc: "No Georgian feast is complete without wine. Taste the wine made with love and tradition right here by our family.",
-                        c3Title: "Nature & Views", c3Desc: "Rooms feature balconies with stunning mountain views. Explore the garden, go fishing nearby, or enjoy hiking trails.",
-                        c4Title: "BBQ Facilities", c4Desc: "Make the most of the sunny weather with our barbecue facilities, perfect for a pleasant evening with friends or family.",
-                        c5Title: "Modern Amenities", c5Desc: "Stay connected with complimentary WiFi throughout the property. We also offer free secure parking for your vehicle.",
-                        c6Title: "Comfortable Rooms", c6Desc: "Three spacious bedrooms, each with a sitting area. Perfect for larger groups or families up to 8 people."
-                    },
-                    reviews: {
-                        title: "Guest Reviews", based: "Based on Google Reviews",
-                        desc: "See what our guests from all over the world have to say about their stay at Ubisa Family Guesthouse.",
-                        write: "Write a Review", local: "Local Guide", revs: "reviews"
-                    },
-                    divider: "Unwind in <span class='text-yellow-400'>Ubisa</span>",
-                    loc: {
-                        title: "Get in Touch", desc: "We are conveniently located just 50-55 km from Kutaisi, near the E60 highway. Ready to book your stay?",
-                        geo: "Georgia (GEO)", ger: "Germany (DE)", email: "Email Us", chat: "Chat & Book Direct"
-                    },
-                    footer: { rights: "&copy; 2024 Ubisa Family Guesthouse. All rights reserved." }
-                }
-            },
-            ka: {
-                translation: {
-                    nav: {
-                        about: "ჩვენ შესახებ", rooms: "ოთახები", experience: "გამოცდილება", location: "ადგილმდებარეობა", book: "დაჯავშნა", bookWa: "დაჯავშნა WhatsApp-ით"
-                    },
-                    hero: {
-                        welcome: "კეთილი იყოს თქვენი მობრძანება",
-                        title: "ნამდვილ ქართულ <br/><span class='text-yellow-400 italic'>საოჯახო სასტუმროში</span>",
-                        subtitle: "გაექეცით ქალაქის ხმაურს და დაისვენეთ ჩვენს საოჯახო სასტუმროში. ისიამოვნეთ ოჯახის ღვინით, მთის ხედებითა და ნამდვილი სოფლის გემოებით.",
-                        explore: "მეტის ნახვა"
-                    },
-                    about: {
-                        capacity: "ტევადობა", guests: "8 სტუმრამდე", story: "ჩვენი ისტორია",
-                        title: "სახლი სახლიდან შორს მთებში",
-                        p1: "მდებარეობს ქუთაისიდან 50-55 კმ-ში, E60 მაგისტრალთან ახლოს. <strong>უბისის საოჯახო სასტუმრო</strong> იდეალური ადგილია დასასვენებლად ან გზად გასაჩერებლად.",
-                        p2: "ჩვენ გთავაზობთ უნიკალურ შესაძლებლობას შეიგრძნოთ ნამდვილი ადგილობრივი ცხოვრება. ჩვენი ოჯახი ამზადებს უგემრიელეს ქართულ კერძებს, მათ შორის ჩვენს ცნობილ ხაჭაპურს და შინაურ ღვინოს. გსურთ ლაშქრობა, თევზაობა თუ უბრალოდ ტერასაზე დასვენება, ჩვენი კარები ღიაა.",
-                        f1: "საოჯახო", f2: "მთის ხედები", f3: "შინაური ღვინო", f4: "უფასო WiFi"
-                    },
-                    rooms: {
-                        acc: "განთავსება", title: "ჩვენი კომფორტული ოთახები",
-                        subtitle: "ჩვენ გვაქვს სამი დიდი საძინებელი, იდეალურია წყვილებისთვის, ოჯახებისთვის ან 8 კაციანი ჯგუფებისთვის. თითოეულ ოთახს აქვს დასასვენებელი კუთხე და მთის ხედები.",
-                        r1Title: "ორადგილიანი ოთახი კერძო აბაზანით",
-                        r1Desc: "მყუდრო ოთახი კომფორტული ორადგილიანი საწოლით, მოსასვენებელი სივრცით და ულამაზესი ხედების მქონე საერთო აივანზე გასასვლელით.",
-                        r1Guests: "2 სტუმარი + ბავშვი", check: "შეამოწმეთ ადგილები &rarr;",
-                        r2Title: "ორადგილიანი ოთახი", r2Desc: "ნათელი და დიდი ოთახი, იდეალურია ოჯახებისთვის. მოიცავს დასასვენებელ ადგილს.", r2Guests: "2 სტუმარი",
-                        r3Title: "ორადგილიანი ოთახი (2 საწოლით)", r3Desc: "იდეალურია მეგობრებისთვის ან მარტოხელა მოგზაურებისთვის, აღჭურვილია კომფორტული განცალკევებული საწოლებით."
-                    },
-                    exp: {
-                        title: "გამოცდილება", subtitle: "ყველაფერი რაც გჭირდებათ ბუნების გულში სრულყოფილი დასვენებისთვის.",
-                        c1Title: "ნამდვილი სამზარეულო", c1Desc: "დაიწყეთ დღე მრავალფეროვანი საუზმითა და ახლად გამომცხვარი საკონდიტრო ნაწარმით. დააგემოვნეთ ჩვენი უგემრიელესი ხაჭაპური.",
-                        c2Title: "ოჯახის ღვინო", c2Desc: "არცერთი ქართული სუფრა არ არსებობს ღვინის გარეშე. დააგემოვნეთ ჩვენი ოჯახის მიერ სიყვარულით და ტრადიციებით დაწურული ღვინო.",
-                        c3Title: "ბუნება და ხედები", c3Desc: "ოთახებს აქვთ აივნები მთის ულამაზესი ხედებით. დაისვენეთ ბაღში, ითევზავეთ ან გაისეირნეთ ბუნებაში.",
-                        c4Title: "ბარბექიუ", c4Desc: "გამოიყენეთ მზიანი ამინდი ჩვენი ბარბექიუს მოწყობილობებით, რაც იდეალურია მეგობრებთან ან ოჯახთან ერთად სასიამოვნო საღამოს გასატარებლად.",
-                        c5Title: "თანამედროვე კომფორტი", c5Desc: "დარჩით კავშირზე უფასო ინტერნეტით მთელ ტერიტორიაზე. ჩვენ ასევე გთავაზობთ უფასო უსაფრთხო პარკინგს.",
-                        c6Title: "კომფორტული ოთახები", c6Desc: "სამი დიდი საძინებელი დასასვენებელი სივრცით. იდეალურია დიდი ჯგუფებისთვის ან ოჯახებისთვის (8 ადამიანამდე)."
-                    },
-                    reviews: {
-                        title: "სტუმრების შეფასებები", based: "Google-ის შეფასებებზე დაყრდნობით",
-                        desc: "ნახეთ რას ამბობენ მსოფლიოს სხვადასხვა კუთხიდან ჩამოსული სტუმრები უბისის საოჯახო სასტუმროზე.",
-                        write: "დაწერეთ შეფასება", local: "ლოკალური გიდი", revs: "შეფასება"
-                    },
-                    divider: "დაისვენეთ <span class='text-yellow-400'>უბისაში</span>",
-                    loc: {
-                        title: "დაგვიკავშირდით", desc: "ჩვენ ვიმყოფებით ქუთაისიდან 50-55 კმ-ში, E60 მაგისტრალთან ახლოს. მზად ხართ დასაჯავშნად?",
-                        geo: "საქართველო (GEO)", ger: "გერმანია (DE)", email: "მოგვწერეთ ელ-ფოსტაზე", chat: "მოგვწერეთ და დაჯავშნეთ"
-                    },
-                    footer: { rights: "&copy; 2024 Ubisa Family Guesthouse. ყველა უფლება დაცულია." }
-                }
-            }
-        };
-
-        // Initialize i18next
-        i18next.init({
-            lng: 'en', // default language
-            fallbackLng: 'en',
-            resources: resources
-        }).then(function() {
-            updateContent();
-        });
-
-        // Function to update texts in HTML
-        function updateContent() {
-            document.querySelectorAll('[data-i18n]').forEach(function(element) {
-                const key = element.getAttribute('data-i18n');
-                element.innerHTML = i18next.t(key);
-            });
-        }
-
-        // Function to toggle language
-        function toggleLang() {
-            const currentLang = i18next.language;
-            const newLang = currentLang === 'en' ? 'ka' : 'en';
-            // Determine what the button should display next to prompt the user (opposite of current state)
-            const btnText = newLang === 'en' ? 'GE' : 'EN';
-            
-            i18next.changeLanguage(newLang).then(function() {
-                updateContent();
-                // Update all language toggle buttons on the screen
-                document.querySelectorAll('.lang-toggle-btn span').forEach(el => {
-                    el.innerText = btnText;
-                });
-            });
-        }
-    </script>
-
-    <!-- General UI Scripts -->
+    <!-- Scripts -->
     <script>
         // Mobile Menu
         const btn = document.getElementById('mobile-menu-btn');
