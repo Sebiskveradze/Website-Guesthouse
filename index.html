@@ -53,12 +53,51 @@
                 transform: translateY(0);
             }
         }
+
+        /* Traveler Animation */
+        .traveler-animation {
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            opacity: 0;
+            animation: driveAcross 16s linear infinite;
+            white-space: nowrap;
+        }
+
+        /* Timing delays to sequence different travelers */
+        .traveler-car { animation-delay: 0s; }
+        .traveler-bike { animation-delay: 4s; }
+        .traveler-motor { animation-delay: 8s; }
+        .traveler-rv { animation-delay: 12s; }
+
+        @keyframes driveAcross {
+            0% { transform: translateX(-150px); opacity: 0; }
+            5% { opacity: 1; }
+            /* Pause at the guesthouse */
+            65% { transform: translateX(calc(100vw - 220px)); opacity: 1; }
+            80% { transform: translateX(calc(100vw - 220px)); opacity: 1; }
+            /* Continue driving off screen */
+            95% { opacity: 1; }
+            100% { transform: translateX(100vw); opacity: 0; }
+        }
+
+        /* Responsive adjustments for the animation pause point */
+        @media (min-width: 768px) {
+            @keyframes driveAcross {
+                0% { transform: translateX(-150px); opacity: 0; }
+                5% { opacity: 1; }
+                65% { transform: translateX(calc(100vw - 420px)); opacity: 1; }
+                80% { transform: translateX(calc(100vw - 420px)); opacity: 1; }
+                95% { opacity: 1; }
+                100% { transform: translateX(100vw); opacity: 0; }
+            }
+        }
     </style>
 </head>
 <body class="font-sans text-gray-700 antialiased bg-stone-50">
 
     <!-- Navigation -->
-    <nav id="navbar" class="w-full z-50 transition-all duration-300 bg-white backdrop-blur-md shadow-sm">       
+    <nav id="navbar" class="w-full z-50 transition-all duration-300 bg-white backdrop-blur-md shadow-sm fixed top-0">       
          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
@@ -194,7 +233,7 @@
     </section>
 
     <!-- Rooms Section -->
-    <section id="rooms" class="py-20 bg-stone-50 bg-gray-200 border-t border-stone-100">
+    <section id="rooms" class="py-20 bg-stone-50 border-t border-stone-100">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-green-900 font-bold tracking-widest text-sm uppercase mb-3">Accommodation</h2>
@@ -255,6 +294,79 @@
                             <a href="https://wa.me/995511106285" target="_blank" class="text-green-700 font-medium hover:text-green-900 text-sm">Check Availability &rarr;</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Road Trip Animation Section -->
+    <section class="py-16 bg-green-900 overflow-hidden relative border-y border-white/10">
+        <!-- Mountain Backdrop -->
+        <div class="absolute bottom-0 w-full h-48 opacity-10 flex justify-around items-end select-none pointer-events-none">
+            <i class="fa-solid fa-mountain text-[150px] text-white"></i>
+            <i class="fa-solid fa-mountain text-[200px] text-white mb-8"></i>
+            <i class="fa-solid fa-mountain text-[120px] text-white"></i>
+            <i class="fa-solid fa-mountain text-[180px] text-white mb-4"></i>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl md:text-4xl font-serif font-bold text-white mb-4">A Perfect Roadstop For All Travelers</h3>
+                <p class="text-green-100 max-w-2xl mx-auto text-lg">
+                    Whether you're exploring Georgia by car, van, motorbike, or bicycle, our guesthouse offers the perfect pitstop near the E60 highway.
+                </p>
+            </div>
+
+            <!-- Road / Animation Container -->
+            <div class="relative h-32 border-b-4 border-dashed border-white/20 mb-8 mt-12">
+                
+                <!-- Guesthouse Icon (The Destination) -->
+                <div class="absolute bottom-0 right-10 md:right-40 text-yellow-400 text-center flex flex-col items-center">
+                    <span class="text-[10px] font-bold uppercase mb-2 bg-green-800/80 px-2 py-1 rounded text-white border border-yellow-400/30">Our Guesthouse</span>
+                    <i class="fa-solid fa-house-chimney text-6xl mb-[-4px] drop-shadow-[0_0_20px_rgba(250,204,21,0.4)]"></i>
+                </div>
+
+                <!-- Traveler 1: Car -->
+                <div class="traveler-animation traveler-car text-white flex flex-col items-center">
+                    <div class="bg-yellow-400 text-green-900 text-[9px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Road Trip</div>
+                    <i class="fa-solid fa-car-side text-5xl"></i>
+                </div>
+
+                <!-- Traveler 2: Bicycle -->
+                <div class="traveler-animation traveler-bike text-white flex flex-col items-center">
+                    <div class="bg-blue-400 text-white text-[9px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Cyclist</div>
+                    <i class="fa-solid fa-bicycle text-5xl"></i>
+                </div>
+
+                <!-- Traveler 3: Motorbike -->
+                <div class="traveler-animation traveler-motor text-white flex flex-col items-center">
+                    <div class="bg-orange-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Adventurer</div>
+                    <i class="fa-solid fa-motorcycle text-5xl"></i>
+                </div>
+
+                <!-- Traveler 4: Wohnmobile (Van/Camper) -->
+                <div class="traveler-animation traveler-rv text-white flex flex-col items-center">
+                    <div class="bg-white text-green-900 text-[9px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Van Life</div>
+                    <i class="fa-solid fa-van-shuttle text-5xl"></i>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 text-center">
+                <div class="flex flex-col items-center gap-2 text-white/80">
+                    <i class="fa-solid fa-bicycle text-yellow-400 text-xl"></i>
+                    <span class="text-sm">Bicycle Friendly</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 text-white/80">
+                    <i class="fa-solid fa-motorcycle text-yellow-400 text-xl"></i>
+                    <span class="text-sm">Motorbike Parking</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 text-white/80">
+                    <i class="fa-solid fa-van-shuttle text-yellow-400 text-xl"></i>
+                    <span class="text-sm">Camper Friendly</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 text-white/80">
+                    <i class="fa-solid fa-square-parking text-yellow-400 text-xl"></i>
+                    <span class="text-sm">Secure Parking</span>
                 </div>
             </div>
         </div>
@@ -332,7 +444,6 @@
             <div class="flex flex-col md:flex-row gap-12 items-start mb-12">
                 
                 <!-- Summary Column -->
-                <!-- UPDATED: Made sticky behavior only apply to desktop (md:sticky) so it doesn't overlap on mobile -->
                 <div class="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left md:sticky md:top-28 z-10">
                     <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Guest Reviews</h2>
                     <div class="flex items-center gap-4 mb-2">
@@ -350,7 +461,7 @@
                     </div>
                     <p class="text-gray-600 mb-6 leading-relaxed">See what our guests from all over the world have to say about their stay at Ubisa Family Guesthouse.</p>
                     
-                    <!-- Review Links (With Pink Hover) -->
+                    <!-- Review Links -->
                     <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                         <a href="https://www.google.com/maps/search/Ubisa+Family+Guesthouse" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 bg-white border border-gray-200 rounded-full font-medium text-gray-700 hover:text-pink-600 hover:border-pink-300 hover:bg-pink-50 transition-all duration-300 shadow-sm hover:shadow-md">
                             <i class="fa-brands fa-google text-blue-500 text-xl"></i> Write a Review
