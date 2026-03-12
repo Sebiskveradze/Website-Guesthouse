@@ -60,7 +60,7 @@
             bottom: 4px;
             left: 0;
             opacity: 0;
-            animation: driveAcross 16s linear infinite;
+            animation: driveAcross 20s linear infinite;
             white-space: nowrap;
         }
 
@@ -69,6 +69,7 @@
         .traveler-bike { animation-delay: 4s; }
         .traveler-motor { animation-delay: 8s; }
         .traveler-rv { animation-delay: 12s; }
+        .traveler-bk { animation-delay: 16s; }
 
         @keyframes driveAcross {
             0% { transform: translateX(-150px); opacity: 0; }
@@ -350,6 +351,14 @@
                     <i class="fa-solid fa-van-shuttle text-5xl"></i>
                 </div>
             </div>
+
+             <!-- Traveler 5: Backpacking -->
+                <div class="traveler-animation traveler-bk text-white flex flex-col items-center">
+                    <div class="bg-white text-yellow-900 text-[9px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Backpacking</div>
+                    <i class="fa-solid fa-person-walking text-5xl"></i>
+                </div>
+            </div>
+            
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 text-center">
                 <div class="flex flex-col items-center gap-2 text-white/80">
