@@ -98,49 +98,42 @@
 <body class="font-sans text-gray-700 antialiased bg-stone-50">
 
     <!-- Navigation -->
-    <nav id="navbar" class="w-full z-50 transition-all duration-300 bg-white shadow-sm flex top-0">       
-         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="flex items-center gap-2 group">
-                        <img src="source/Header_no_background.png" alt="Ubisa Family Guesthouse" class="h-20 w-auto object-left scale-[3] origin-left">
-                    </a>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-gray-600 hover:text-green-700 font-medium transition-colors">About</a>
-                    <a href="#rooms" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Rooms</a>
-                    <a href="#experience" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Experience</a>
-                    <a href="#location" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Location</a>
-                    <a href="https://wa.me/995511106285" target="_blank" class="bg-green-700 hover:bg-green-800 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-xl flex items-center gap-2 transform hover:-translate-y-0.5">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> Book Now
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-green-700 focus:outline-none p-2">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-            <div class="px-4 pt-2 pb-6 space-y-1 shadow-lg">
-                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">About Us</a>
-                <a href="#rooms" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Rooms</a>
-                <a href="#experience" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Experience</a>
-                <a href="#location" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Location</a>
-                <a href="https://wa.me/995511106285" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold text-white bg-green-600 hover:bg-green-700">
-                    <i class="fa-brands fa-whatsapp mr-2"></i> Book via WhatsApp
+    <nav id="navbar" class="w-full z-[100] bg-white shadow-md fixed top-0 left-0 right-0 h-20">       
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div class="flex justify-between items-center h-full">
+            <div class="flex-shrink-0 flex items-center">
+                <a href="#" class="flex items-center gap-2 group">
+                    <img src="source/Header_no_background.png" alt="Ubisa Family Guesthouse" class="h-20 w-auto object-left scale-[3] origin-left">
                 </a>
             </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-green-700 font-bold transition-colors">About</a>
+                <a href="#rooms" class="text-gray-700 hover:text-green-700 font-bold transition-colors">Rooms</a>
+                <a href="#experience" class="text-gray-700 hover:text-green-700 font-bold transition-colors">Experience</a>
+                <a href="#location" class="text-gray-700 hover:text-green-700 font-bold transition-colors">Location</a>
+                <a href="https://wa.me/995511106285" target="_blank" class="bg-green-700 hover:bg-green-800 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-lg flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Book Now
+                </a>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-gray-700 hover:text-green-700 focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
-    </nav>
+    </div>
+    
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl w-full">
+        <div class="px-4 pt-2 pb-6 space-y-1">
+            <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-green-50">About Us</a>
+            <a href="#rooms" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-green-50">Rooms</a>
+            <a href="#experience" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-green-50">Experience</a>
+            <a href="#location" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:bg-green-50">Location</a>
+        </div>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <div class="relative min-h-screen flex items-center justify-center overflow-hidden">
