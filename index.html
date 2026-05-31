@@ -9,10 +9,10 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts - Enhanced with more elegant options -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -22,56 +22,48 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                        serif: ['Cormorant Garamond', 'serif'],
-                        display: ['Cormorant Garamond', 'serif'],
-                        accent: ['Lora', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        display: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        warm: {
-                            50: '#fdf8f3',
-                            100: '#f5ede4',
-                            200: '#ead5c8',
-                            300: '#e0bdac',
-                            400: '#d4a896',
-                            500: '#c89880',
-                            600: '#b8754f',
-                            700: '#a05f3f',
-                            800: '#884d33',
-                            900: '#6b3a24',
+                        green: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            400: '#4ade80',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
                         },
-                        cream: {
-                            50: '#fefcf8',
-                            100: '#faf6f0',
-                            200: '#f5f0e8',
+                        amber: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
                         },
-                        sage: {
-                            50: '#f7faf5',
-                            100: '#e8f0e5',
-                            200: '#d0e0ca',
-                            600: '#5a8c5a',
-                            700: '#4a7a4a',
-                            800: '#3a6a3a',
-                        },
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            900: '#1c1917',
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Custom color variables - Warm & Cosy */
+        /* Custom color variables */
         :root {
-            --color-warm-bg: #faf6f0;
-            --color-warm-accent: #c89880;
-            --color-warm-dark: #884d33;
-            --color-sage: #5a8c5a;
-            --color-cream: #fefcf8;
+            --color-warm: #f5f1ed;
+            --color-accent: #d4886d;
+            --color-accent-dark: #b8754f;
         }
 
         body {
-            background-color: var(--color-warm-bg);
-            color: #5a5047;
-            font-weight: 400;
+            background-color: var(--color-warm);
         }
 
         /* Smooth scroll behavior */
@@ -142,32 +134,31 @@
             }
         }
 
-        /* Enhanced Glow effect for buttons - Warm & Cosy */
+        /* Glow effect for buttons */
         .glow-button {
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(200, 152, 128, 0.25);
         }
 
         .glow-button:hover {
-            box-shadow: 0 8px 25px rgba(200, 152, 128, 0.4);
-            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            transform: translateY(-2px);
         }
 
-        /* Card hover effect - Enhanced */
+        /* Card hover effect */
         .card-hover {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(200, 152, 128, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        /* Gradient overlay for hero - Warmer */
+        /* Gradient overlay for hero */
         .hero-overlay {
-            background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.45) 100%);
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.5) 100%);
         }
 
         /* Smooth transitions */
@@ -180,40 +171,11 @@
             scroll-margin-top: 100px;
         }
 
-        /* Sticky navigation enhancement - Warmer aesthetic */
+        /* Sticky navigation enhancement */
         nav.sticky-nav {
-            background: rgba(250, 246, 240, 0.98);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(200, 152, 128, 0.1);
-        }
-
-        /* Typography enhancements */
-        h1, h2, h3, h4, h5, h6 {
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-        }
-
-        /* Decorative accent */
-        .accent-bar {
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, var(--color-warm-accent), var(--color-sage));
-            border-radius: 2px;
-        }
-
-        /* Warm card backgrounds */
-        .warm-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(250,246,240,0.6) 100%);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(200, 152, 128, 0.15);
-        }
-
-        /* Image frame effect */
-        .img-frame {
-            position: relative;
-            box-shadow: 
-                0 20px 40px rgba(136, 77, 51, 0.15),
-                0 0 0 1px rgba(200, 152, 128, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
@@ -226,40 +188,40 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0">
                     <a href="#" class="flex items-center gap-2 group">
-                        <img src="source/Header_no_background.png" alt="Ubisa Family Guesthouse" class="h-16 w-auto object-left scale-[2.5] origin-left group-hover:scale-[2.6] transition-transform duration-300">
+                        <img src="source/Header_no_background.png" alt="Ubisa Family Guesthouse" class="h-16 w-auto object-left scale-[2.5] origin-left hover:scale-[2.6] transition-transform">
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-1">
-                    <a href="#about" class="px-4 py-2 text-gray-700 hover:text-warm-600 font-medium transition-colors rounded-lg hover:bg-warm-50">About</a>
-                    <a href="#rooms" class="px-4 py-2 text-gray-700 hover:text-warm-600 font-medium transition-colors rounded-lg hover:bg-warm-50">Rooms</a>
-                    <a href="#experience" class="px-4 py-2 text-gray-700 hover:text-warm-600 font-medium transition-colors rounded-lg hover:bg-warm-50">Experience</a>
-                    <a href="#location" class="px-4 py-2 text-gray-700 hover:text-warm-600 font-medium transition-colors rounded-lg hover:bg-warm-50">Location</a>
+                    <a href="#about" class="px-4 py-2 text-gray-700 hover:text-green-700 font-medium transition-colors rounded-lg hover:bg-green-50">About</a>
+                    <a href="#rooms" class="px-4 py-2 text-gray-700 hover:text-green-700 font-medium transition-colors rounded-lg hover:bg-green-50">Rooms</a>
+                    <a href="#experience" class="px-4 py-2 text-gray-700 hover:text-green-700 font-medium transition-colors rounded-lg hover:bg-green-50">Experience</a>
+                    <a href="#location" class="px-4 py-2 text-gray-700 hover:text-green-700 font-medium transition-colors rounded-lg hover:bg-green-50">Location</a>
                 </div>
 
                 <!-- CTA Button -->
                 <div class="hidden md:flex">
-                    <a href="https://wa.me/995511106285" target="_blank" class="glow-button bg-gradient-to-r from-warm-500 to-warm-600 hover:from-warm-600 hover:to-warm-700 text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 shadow-lg">
+                    <a href="https://wa.me/995511106285" target="_blank" class="glow-button bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 shadow-lg">
                         <i class="fa-brands fa-whatsapp"></i> Book Now
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-warm-600 focus:outline-none p-2 transition">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-green-700 focus:outline-none p-2">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-warm-100">
-                <a href="#about" class="block px-4 py-2 text-gray-700 hover:text-warm-600 font-medium">About</a>
-                <a href="#rooms" class="block px-4 py-2 text-gray-700 hover:text-warm-600 font-medium">Rooms</a>
-                <a href="#experience" class="block px-4 py-2 text-gray-700 hover:text-warm-600 font-medium">Experience</a>
-                <a href="#location" class="block px-4 py-2 text-gray-700 hover:text-warm-600 font-medium">Location</a>
-                <a href="https://wa.me/995511106285" target="_blank" class="block mx-4 mt-4 bg-warm-600 hover:bg-warm-700 text-white px-4 py-2 rounded-full font-semibold text-center transition">Book Now</a>
+            <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-100">
+                <a href="#about" class="block px-4 py-2 text-gray-700 hover:text-green-700 font-medium">About</a>
+                <a href="#rooms" class="block px-4 py-2 text-gray-700 hover:text-green-700 font-medium">Rooms</a>
+                <a href="#experience" class="block px-4 py-2 text-gray-700 hover:text-green-700 font-medium">Experience</a>
+                <a href="#location" class="block px-4 py-2 text-gray-700 hover:text-green-700 font-medium">Location</a>
+                <a href="https://wa.me/995511106285" target="_blank" class="block mx-4 mt-4 bg-green-600 text-white px-4 py-2 rounded-full font-semibold text-center">Book Now</a>
             </div>
         </div>
     </nav>
@@ -282,15 +244,15 @@
             </span>
             
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight fade-in-up drop-shadow-lg" style="animation-delay: 0.3s;">
-                Ubisa Family <br/><span class="text-amber-200">Guesthouse</span>
+                Ubisa Family <br/><span class="text-amber-300">Guesthouse</span>
             </h1>
             
-            <p class="text-lg md:text-xl text-gray-100 mb-10 max-w-2xl mx-auto leading-relaxed fade-in-up font-light" style="animation-delay: 0.5s;">
+            <p class="text-lg md:text-xl text-gray-100 mb-10 max-w-2xl mx-auto leading-relaxed fade-in-up" style="animation-delay: 0.5s;">
                 Escape to authentic Georgian hospitality. Homemade wine, mountain views, and warmth you'll never forget.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style="animation-delay: 0.7s;">
-                <a href="https://wa.me/995511106285" target="_blank" class="glow-button bg-gradient-to-r from-warm-500 to-warm-600 hover:from-warm-600 hover:to-warm-700 text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center hover:shadow-2xl">
+                <a href="https://wa.me/995511106285" target="_blank" class="glow-button bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center hover:shadow-2xl">
                     <i class="fa-brands fa-whatsapp text-2xl"></i> Book via WhatsApp
                 </a>
                 <a href="#about" class="glow-button bg-white/20 backdrop-blur-md text-white border-2 border-white/50 px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center hover:bg-white/30">
@@ -306,26 +268,26 @@
     </div>
 
     <!-- About Section -->
-    <section id="about" class="py-20 md:py-32 bg-gradient-to-b from-white via-cream-50 to-warm-50 relative overflow-hidden">
-        <!-- Decorative elements - Warmer -->
-        <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-warm-100 rounded-full blur-3xl opacity-40 z-0"></div>
-        <div class="absolute bottom-0 left-0 -ml-32 -mb-32 w-80 h-80 bg-sage-100 rounded-full blur-3xl opacity-30 z-0"></div>
+    <section id="about" class="py-20 md:py-32 bg-white relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30 z-0"></div>
+        <div class="absolute bottom-0 left-0 -ml-24 -mb-24 w-80 h-80 bg-amber-100 rounded-full blur-3xl opacity-20 z-0"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                 <!-- Image -->
                 <div class="w-full lg:w-1/2">
                     <div class="relative card-hover">
-                        <div class="absolute -inset-2 bg-gradient-to-r from-warm-400/30 to-sage-400/30 rounded-3xl blur-2xl opacity-50"></div>
+                        <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-amber-400 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
                         <div class="relative">
-                            <img src="source/original_noTEXT.png" alt="Cozy Interior" class="rounded-3xl img-frame w-full object-cover h-[500px]">
-                            <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl img-frame hidden md:flex items-center gap-4 border-l-4 border-warm-500">
-                                <div class="bg-gradient-to-br from-warm-400 to-warm-600 p-4 rounded-full text-white">
+                            <img src="source/original_noTEXT.png" alt="Cozy Interior" class="rounded-3xl shadow-xl w-full object-cover h-[500px]">
+                            <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-2xl hidden md:flex items-center gap-4 border-2 border-green-100">
+                                <div class="bg-gradient-to-br from-green-400 to-green-600 p-4 rounded-full text-white">
                                     <i class="fa-solid fa-users text-2xl"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Capacity</p>
-                                    <p class="text-2xl font-serif font-bold text-gray-900">Up to 8 Guests</p>
+                                    <p class="text-sm text-gray-500 font-semibold uppercase tracking-wide">Capacity</p>
+                                    <p class="text-2xl font-bold text-gray-900">Up to 8 Guests</p>
                                 </div>
                             </div>
                         </div>
@@ -334,14 +296,13 @@
 
                 <!-- Text Content -->
                 <div class="w-full lg:w-1/2">
-                    <span class="inline-block text-warm-700 font-bold tracking-widest text-xs uppercase mb-2 bg-warm-100 px-4 py-2 rounded-full">Our Story</span>
-                    <div class="accent-bar mb-6"></div>
+                    <span class="inline-block text-green-700 font-bold tracking-widest text-xs uppercase mb-4 bg-green-50 px-4 py-2 rounded-full">Our Story</span>
                     
-                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-8 leading-tight">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6 leading-tight">
                         A Warm Home in the Mountains
                     </h2>
                     
-                    <p class="text-gray-600 mb-5 text-lg leading-relaxed">
+                    <p class="text-gray-600 mb-4 text-lg leading-relaxed">
                         Nestled just 50-55 km from Kutaisi, close to the E60 highway, <strong>Ubisa Family Guesthouse</strong> is your perfect sanctuary. Whether you're a road tripper seeking an authentic stop or a traveler seeking mountain tranquility, we welcome you with open arms.
                     </p>
                     
@@ -350,20 +311,20 @@
                     </p>
                     
                     <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-br from-warm-50 to-cream-50 hover:from-warm-100 hover:to-cream-100 transition border border-warm-200/50">
-                            <i class="fa-solid fa-heart text-warm-600 text-lg"></i>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-green-50 hover:bg-green-100 transition">
+                            <i class="fa-solid fa-check-circle text-green-600 text-lg"></i>
                             <span class="text-gray-700 font-medium">Family Run</span>
                         </div>
-                        <div class="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-br from-sage-50 to-cream-50 hover:from-sage-100 hover:to-cream-100 transition border border-sage-200/50">
-                            <i class="fa-solid fa-mountain text-sage-700 text-lg"></i>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-green-50 hover:bg-green-100 transition">
+                            <i class="fa-solid fa-check-circle text-green-600 text-lg"></i>
                             <span class="text-gray-700 font-medium">Mountain Views</span>
                         </div>
-                        <div class="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-br from-warm-50 to-cream-50 hover:from-warm-100 hover:to-cream-100 transition border border-warm-200/50">
-                            <i class="fa-solid fa-wine-glass text-warm-600 text-lg"></i>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-green-50 hover:bg-green-100 transition">
+                            <i class="fa-solid fa-check-circle text-green-600 text-lg"></i>
                             <span class="text-gray-700 font-medium">Homemade Wine</span>
                         </div>
-                        <div class="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-br from-sage-50 to-cream-50 hover:from-sage-100 hover:to-cream-100 transition border border-sage-200/50">
-                            <i class="fa-solid fa-wifi text-sage-700 text-lg"></i>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-green-50 hover:bg-green-100 transition">
+                            <i class="fa-solid fa-check-circle text-green-600 text-lg"></i>
                             <span class="text-gray-700 font-medium">Free WiFi</span>
                         </div>
                     </div>
@@ -373,75 +334,72 @@
     </section>
 
     <!-- Rooms Section -->
-    <section id="rooms" class="py-20 md:py-32 bg-gradient-to-b from-warm-50 to-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 -ml-40 -mt-40 w-96 h-96 bg-warm-100 rounded-full blur-3xl opacity-40 z-0"></div>
+    <section id="rooms" class="py-20 md:py-32 bg-stone-50 relative overflow-hidden">
+        <div class="absolute top-0 left-0 -ml-32 -mt-32 w-96 h-96 bg-amber-100 rounded-full blur-3xl opacity-20 z-0"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="inline-block text-warm-700 font-bold tracking-widest text-xs uppercase mb-2 bg-warm-100 px-4 py-2 rounded-full">Accommodation</span>
-                <div class="flex justify-center mb-6">
-                    <div class="accent-bar"></div>
-                </div>
+                <span class="inline-block text-green-700 font-bold tracking-widest text-xs uppercase mb-4 bg-green-50 px-4 py-2 rounded-full">Accommodation</span>
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">Comfort & Elegance</h2>
                 <p class="text-gray-600 text-lg leading-relaxed">Three spacious bedrooms designed for your comfort. Each room offers a sitting area, mountain views, and the warmth of home.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Room 1 -->
-                <div class="card-hover group rounded-2xl overflow-hidden warm-card">
+                <div class="card-hover group rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-100">
                     <div class="relative h-64 overflow-hidden bg-gray-200">
                         <img src="source/room1.png" alt="Double Room Private Bathroom" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-warm-500 to-warm-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-1">
+                        <div class="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-1">
                             <i class="fa-solid fa-lari-sign"></i> 95 GEL
                         </div>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-serif font-bold text-gray-900 mb-3">Double Room</h3>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2">Double Room</h3>
                         <p class="text-gray-600 text-sm mb-5 leading-relaxed">Private bathroom, comfortable double bed, sitting area, and access to a shared balcony with stunning mountain vistas.</p>
-                        <div class="flex items-center gap-3 text-gray-700 text-sm mb-6 p-3 bg-warm-50 rounded-lg border border-warm-200/50">
-                            <i class="fa-solid fa-user-group text-warm-600"></i>
+                        <div class="flex items-center gap-3 text-gray-700 text-sm mb-4 p-3 bg-green-50 rounded-lg">
+                            <i class="fa-solid fa-user-group text-green-600"></i>
                             <span>2 Guests + Child</span>
                         </div>
-                        <a href="https://wa.me/995511106285" target="_blank" class="w-full bg-gradient-to-r from-warm-500 to-warm-600 hover:from-warm-600 hover:to-warm-700 text-white font-semibold py-3 px-4 rounded-lg transition text-center glow-button">Check Availability</a>
+                        <a href="https://wa.me/995511106285" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition text-center">Check Availability</a>
                     </div>
                 </div>
 
                 <!-- Room 2 (Featured) -->
-                <div class="card-hover group rounded-2xl overflow-hidden warm-card transform md:-translate-y-4 ring-2 ring-warm-400/50">
+                <div class="card-hover group rounded-2xl overflow-hidden shadow-lg bg-white border border-green-100 transform md:-translate-y-4">
                     <div class="relative h-64 overflow-hidden bg-gray-200">
                         <img src="source/room2.png" alt="Family Room" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 left-4 bg-gradient-to-r from-warm-400 to-warm-500 text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg">★ FEATURED</div>
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-warm-500 to-warm-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-1">
+                        <div class="absolute top-4 left-4 bg-gradient-to-r from-amber-400 to-amber-500 text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg">FEATURED</div>
+                        <div class="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-1">
                             <i class="fa-solid fa-lari-sign"></i> 75 GEL
                         </div>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-serif font-bold text-gray-900 mb-3">Family Room</h3>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2">Family Room</h3>
                         <p class="text-gray-600 text-sm mb-5 leading-relaxed">Spacious accommodation ideal for families. Includes sitting area, excellent natural light, and beautiful views of the surrounding mountains.</p>
-                        <div class="flex items-center gap-3 text-gray-700 text-sm mb-6 p-3 bg-warm-50 rounded-lg border border-warm-200/50">
-                            <i class="fa-solid fa-user-group text-warm-600"></i>
+                        <div class="flex items-center gap-3 text-gray-700 text-sm mb-4 p-3 bg-green-50 rounded-lg">
+                            <i class="fa-solid fa-user-group text-green-600"></i>
                             <span>2-4 Guests</span>
                         </div>
-                        <a href="https://wa.me/995511106285" target="_blank" class="w-full bg-gradient-to-r from-warm-500 to-warm-600 hover:from-warm-600 hover:to-warm-700 text-white font-semibold py-3 px-4 rounded-lg transition text-center glow-button">Check Availability</a>
+                        <a href="https://wa.me/995511106285" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition text-center">Check Availability</a>
                     </div>
                 </div>
 
                 <!-- Room 3 -->
-                <div class="card-hover group rounded-2xl overflow-hidden warm-card">
+                <div class="card-hover group rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-100">
                     <div class="relative h-64 overflow-hidden bg-gray-200">
                         <img src="source/room3.png" alt="Twin Room" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-warm-500 to-warm-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-1">
+                        <div class="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-1">
                             <i class="fa-solid fa-lari-sign"></i> 75 GEL
                         </div>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-serif font-bold text-gray-900 mb-3">Twin Room</h3>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2">Twin Room</h3>
                         <p class="text-gray-600 text-sm mb-5 leading-relaxed">Perfect for friends or solo travelers. Features comfortable twin beds, sitting area, and a relaxing, peaceful atmosphere.</p>
-                        <div class="flex items-center gap-3 text-gray-700 text-sm mb-6 p-3 bg-warm-50 rounded-lg border border-warm-200/50">
-                            <i class="fa-solid fa-user-group text-warm-600"></i>
+                        <div class="flex items-center gap-3 text-gray-700 text-sm mb-4 p-3 bg-green-50 rounded-lg">
+                            <i class="fa-solid fa-user-group text-green-600"></i>
                             <span>2 Guests</span>
                         </div>
-                        <a href="https://wa.me/995511106285" target="_blank" class="w-full bg-gradient-to-r from-warm-500 to-warm-600 hover:from-warm-600 hover:to-warm-700 text-white font-semibold py-3 px-4 rounded-lg transition text-center glow-button">Check Availability</a>
+                        <a href="https://wa.me/995511106285" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition text-center">Check Availability</a>
                     </div>
                 </div>
             </div>
@@ -449,7 +407,7 @@
     </section>
 
     <!-- Road Trip Animation Section -->
-    <section class="py-16 bg-gradient-to-b from-sage-800 via-sage-700 to-sage-800 overflow-hidden relative border-y border-sage-600">
+    <section class="py-16 bg-gradient-to-b from-green-900 to-green-800 overflow-hidden relative border-y border-green-700">
         <!-- Mountain Backdrop -->
         <div class="absolute bottom-0 w-full h-48 opacity-10 flex justify-around items-end select-none pointer-events-none">
             <i class="fa-solid fa-mountain text-[150px] text-white"></i>
@@ -461,9 +419,9 @@
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4">
-                    Perfect Stop for <br/><span class="text-warm-300">Every Traveler</span>
+                    Perfect Stop for <br/><span class="text-amber-300">Every Traveler</span>
                 </h2>
-                <p class="text-sage-100 max-w-2xl mx-auto text-lg font-light">
+                <p class="text-green-100 max-w-2xl mx-auto text-lg">
                     Car, van, motorbike, bicycle, or on foot—we're the ideal pitstop on your Georgian adventure.
                 </p>
             </div>
@@ -472,13 +430,13 @@
             <div class="relative h-32 border-b-4 border-dashed border-white/30 mb-8 mt-12">
                 <!-- Destination -->
                 <div class="absolute bottom-0 right-10 md:right-40 text-center flex flex-col items-center">
-                    <span class="text-xs font-bold uppercase mb-2 bg-sage-700 px-3 py-1 rounded-full text-warm-200 border border-warm-300/30">Our Home</span>
-                    <i class="fa-solid fa-house-chimney text-6xl text-warm-200 drop-shadow-lg mb-2"></i>
+                    <span class="text-xs font-bold uppercase mb-2 bg-green-700 px-3 py-1 rounded-full text-amber-300 border border-amber-300/30">Our Home</span>
+                    <i class="fa-solid fa-house-chimney text-6xl text-amber-300 drop-shadow-lg mb-2"></i>
                 </div>
 
                 <!-- Travelers -->
                 <div class="traveler-animation traveler-car text-white flex flex-col items-center">
-                    <div class="bg-warm-400 text-white text-[8px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Road Trip</div>
+                    <div class="bg-amber-400 text-green-900 text-[8px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Road Trip</div>
                     <i class="fa-solid fa-car-side text-5xl"></i>
                 </div>
 
@@ -493,12 +451,12 @@
                 </div>
 
                 <div class="traveler-animation traveler-rv text-white flex flex-col items-center">
-                    <div class="bg-white text-sage-900 text-[8px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Van Life</div>
+                    <div class="bg-white text-green-900 text-[8px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Van Life</div>
                     <i class="fa-solid fa-van-shuttle text-5xl"></i>
                 </div>
 
                 <div class="traveler-animation traveler-bk text-white flex flex-col items-center">
-                    <div class="bg-white text-warm-900 text-[8px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Backpacking</div>
+                    <div class="bg-white text-amber-900 text-[8px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Backpacking</div>
                     <i class="fa-solid fa-person-walking text-5xl"></i>
                 </div>
             </div>
@@ -506,19 +464,19 @@
             <!-- Amenities Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
                 <div class="flex flex-col items-center gap-3 text-white/90 p-4 rounded-xl hover:bg-white/10 transition">
-                    <i class="fa-solid fa-bicycle text-warm-300 text-3xl"></i>
+                    <i class="fa-solid fa-bicycle text-amber-300 text-3xl"></i>
                     <span class="text-sm font-medium">Bicycle Friendly</span>
                 </div>
                 <div class="flex flex-col items-center gap-3 text-white/90 p-4 rounded-xl hover:bg-white/10 transition">
-                    <i class="fa-solid fa-motorcycle text-warm-300 text-3xl"></i>
+                    <i class="fa-solid fa-motorcycle text-amber-300 text-3xl"></i>
                     <span class="text-sm font-medium">Motorbike Parking</span>
                 </div>
                 <div class="flex flex-col items-center gap-3 text-white/90 p-4 rounded-xl hover:bg-white/10 transition">
-                    <i class="fa-solid fa-van-shuttle text-warm-300 text-3xl"></i>
+                    <i class="fa-solid fa-van-shuttle text-amber-300 text-3xl"></i>
                     <span class="text-sm font-medium">Camper Friendly</span>
                 </div>
                 <div class="flex flex-col items-center gap-3 text-white/90 p-4 rounded-xl hover:bg-white/10 transition">
-                    <i class="fa-solid fa-square-parking text-warm-300 text-3xl"></i>
+                    <i class="fa-solid fa-square-parking text-amber-300 text-3xl"></i>
                     <span class="text-sm font-medium">Secure Parking</span>
                 </div>
             </div>
@@ -527,49 +485,46 @@
 
     <!-- Experience Section -->
     <section id="experience" class="py-20 md:py-32 bg-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-warm-100 rounded-full blur-3xl opacity-30 z-0"></div>
+        <div class="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-20 z-0"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="inline-block text-warm-700 font-bold tracking-widest text-xs uppercase mb-2 bg-warm-100 px-4 py-2 rounded-full">What Awaits You</span>
-                <div class="flex justify-center mb-6">
-                    <div class="accent-bar"></div>
-                </div>
+                <span class="inline-block text-green-700 font-bold tracking-widest text-xs uppercase mb-4 bg-green-50 px-4 py-2 rounded-full">What Awaits You</span>
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">Unforgettable Experiences</h2>
                 <p class="text-gray-600 text-lg">Everything you need for a rejuvenating stay immersed in nature and culture.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="card-hover group bg-white p-8 rounded-2xl warm-card hover:shadow-2xl">
-                    <div class="w-16 h-16 bg-gradient-to-br from-warm-200 to-warm-300 rounded-full flex items-center justify-center mb-6 group-hover:from-warm-500 group-hover:to-warm-600 transition-all duration-300">
-                        <i class="fa-solid fa-utensils text-2xl text-warm-700 group-hover:text-white transition-colors"></i>
+                <div class="card-hover group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-green-200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mb-6 group-hover:from-green-500 group-hover:to-green-600 transition-all duration-300">
+                        <i class="fa-solid fa-utensils text-2xl text-green-700 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Authentic Cuisine</h3>
                     <p class="text-gray-600 leading-relaxed">Wake up to hearty breakfasts with fresh pastries. Savor our signature Khachapuri and traditional Georgian dishes prepared with love.</p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="card-hover group bg-white p-8 rounded-2xl warm-card hover:shadow-2xl">
-                    <div class="w-16 h-16 bg-gradient-to-br from-warm-200 to-warm-300 rounded-full flex items-center justify-center mb-6 group-hover:from-warm-500 group-hover:to-warm-600 transition-all duration-300">
-                        <i class="fa-solid fa-wine-glass text-2xl text-warm-700 group-hover:text-white transition-colors"></i>
+                <div class="card-hover group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-amber-200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mb-6 group-hover:from-amber-500 group-hover:to-amber-600 transition-all duration-300">
+                        <i class="fa-solid fa-wine-glass text-2xl text-amber-700 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Homemade Wine</h3>
                     <p class="text-gray-600 leading-relaxed">Taste wine made with family tradition and pride. Experience Georgian winemaking heritage in every sip, shared with stories and warmth.</p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="card-hover group bg-white p-8 rounded-2xl warm-card hover:shadow-2xl">
-                    <div class="w-16 h-16 bg-gradient-to-br from-sage-200 to-sage-300 rounded-full flex items-center justify-center mb-6 group-hover:from-sage-600 group-hover:to-sage-700 transition-all duration-300">
-                        <i class="fa-solid fa-mountain-sun text-2xl text-sage-700 group-hover:text-white transition-colors"></i>
+                <div class="card-hover group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-green-200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mb-6 group-hover:from-green-500 group-hover:to-green-600 transition-all duration-300">
+                        <i class="fa-solid fa-mountain-sun text-2xl text-green-700 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Nature & Mountains</h3>
                     <p class="text-gray-600 leading-relaxed">Balconies with breathtaking mountain views. Explore gardens, hike nearby trails, fish in pristine waters, and breathe in pure mountain air.</p>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="card-hover group bg-white p-8 rounded-2xl warm-card hover:shadow-2xl">
-                    <div class="w-16 h-16 bg-gradient-to-br from-orange-200 to-orange-300 rounded-full flex items-center justify-center mb-6 group-hover:from-orange-500 group-hover:to-orange-600 transition-all duration-300">
+                <div class="card-hover group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-orange-200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center mb-6 group-hover:from-orange-500 group-hover:to-orange-600 transition-all duration-300">
                         <i class="fa-solid fa-fire text-2xl text-orange-700 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">BBQ & Gatherings</h3>
@@ -577,8 +532,8 @@
                 </div>
 
                 <!-- Card 5 -->
-                <div class="card-hover group bg-white p-8 rounded-2xl warm-card hover:shadow-2xl">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full flex items-center justify-center mb-6 group-hover:from-blue-500 group-hover:to-blue-600 transition-all duration-300">
+                <div class="card-hover group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mb-6 group-hover:from-blue-500 group-hover:to-blue-600 transition-all duration-300">
                         <i class="fa-solid fa-wifi text-2xl text-blue-700 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Modern Comfort</h3>
@@ -586,8 +541,8 @@
                 </div>
 
                 <!-- Card 6 -->
-                <div class="card-hover group bg-white p-8 rounded-2xl warm-card hover:shadow-2xl">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full flex items-center justify-center mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                <div class="card-hover group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-purple-200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
                         <i class="fa-solid fa-bed text-2xl text-purple-700 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Cozy Rooms</h3>
@@ -598,18 +553,17 @@
     </section>
 
     <!-- Reviews Section -->
-    <section id="reviews" class="py-20 md:py-32 bg-gradient-to-b from-warm-50 to-white relative overflow-hidden">
-        <div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 bg-warm-100 rounded-full blur-3xl opacity-40 z-0"></div>
+    <section id="reviews" class="py-20 md:py-32 bg-stone-50 relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 -ml-32 -mb-32 w-96 h-96 bg-amber-100 rounded-full blur-3xl opacity-20 z-0"></div>
 
         <div class="container mx-auto px-4 relative z-10 max-w-7xl">
             <div class="flex flex-col lg:flex-row gap-12 items-start">
                 <!-- Summary -->
                 <div class="w-full lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left lg:sticky lg:top-32 z-10">
-                    <span class="inline-block text-warm-700 font-bold tracking-widest text-xs uppercase mb-2 bg-warm-100 px-4 py-2 rounded-full">Guest Love</span>
-                    <div class="accent-bar hidden lg:block mb-6 lg:mb-4"></div>
+                    <span class="inline-block text-green-700 font-bold tracking-widest text-xs uppercase mb-4 bg-green-50 px-4 py-2 rounded-full">Guest Love</span>
                     <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">4.9 Stars</h2>
                     
-                    <div class="flex text-warm-400 text-2xl mb-4">
+                    <div class="flex text-amber-400 text-2xl mb-4">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -617,11 +571,11 @@
                         <i class="fa-solid fa-star-half-stroke"></i>
                     </div>
                     
-                    <p class="text-gray-500 mb-8 leading-relaxed text-sm">Based on Google Reviews</p>
+                    <p class="text-gray-600 mb-8 leading-relaxed text-sm text-gray-500">Based on Google Reviews</p>
                     
                     <p class="text-gray-600 mb-8 leading-relaxed">Read what guests from around the world share about their unforgettable stay with us.</p>
                     
-                    <a href="https://www.google.com/maps/search/Ubisa+Family+Guesthouse" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 bg-white border-2 border-warm-600 text-warm-600 rounded-full font-semibold hover:bg-warm-600 hover:text-white transition glow-button">
+                    <a href="https://www.google.com/maps/search/Ubisa+Family+Guesthouse" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 bg-white border-2 border-green-600 text-green-600 rounded-full font-semibold hover:bg-green-600 hover:text-white transition glow-button">
                         <i class="fa-brands fa-google"></i> Write a Review
                     </a>
                 </div>
@@ -630,7 +584,7 @@
                 <div class="w-full lg:w-2/3">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <!-- Review 1 -->
-                        <div class="card-hover bg-white p-6 rounded-2xl warm-card hover:shadow-xl">
+                        <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-green-200">
                             <div class="flex items-start gap-4 mb-4">
                                 <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">M</div>
                                 <div class="flex-1">
@@ -639,14 +593,14 @@
                                 </div>
                                 <i class="fa-brands fa-google text-gray-300 text-lg"></i>
                             </div>
-                            <div class="flex text-warm-400 text-sm mb-3 gap-0.5">
+                            <div class="flex text-amber-400 text-sm mb-3 gap-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                             <p class="text-gray-600 text-sm leading-relaxed">"Familiar guesthouse next to the highway, easy to reach with fantastic dinner & breakfast, nice view and real hospitality."</p>
                         </div>
 
                         <!-- Review 2 -->
-                        <div class="card-hover bg-white p-6 rounded-2xl warm-card hover:shadow-xl">
+                        <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-pink-200">
                             <div class="flex items-start gap-4 mb-4">
                                 <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">J</div>
                                 <div class="flex-1">
@@ -655,14 +609,14 @@
                                 </div>
                                 <i class="fa-brands fa-google text-gray-300 text-lg"></i>
                             </div>
-                            <div class="flex text-warm-400 text-sm mb-3 gap-0.5">
+                            <div class="flex text-amber-400 text-sm mb-3 gap-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                             <p class="text-gray-600 text-sm leading-relaxed">"They accepted our booking at 10pm, cooked for us. We felt like at grandma's house. ❤️ Pure warmth and hospitality."</p>
                         </div>
 
                         <!-- Review 3 -->
-                        <div class="card-hover bg-white p-6 rounded-2xl warm-card hover:shadow-xl">
+                        <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-green-200">
                             <div class="flex items-start gap-4 mb-4">
                                 <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">T</div>
                                 <div class="flex-1">
@@ -671,14 +625,14 @@
                                 </div>
                                 <i class="fa-brands fa-google text-gray-300 text-lg"></i>
                             </div>
-                            <div class="flex text-warm-400 text-sm mb-3 gap-0.5">
+                            <div class="flex text-amber-400 text-sm mb-3 gap-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                             <p class="text-gray-600 text-sm leading-relaxed">"Enjoyed every moment! The views, friendly family, amazing food, peaceful atmosphere. Coming back soon!"</p>
                         </div>
 
                         <!-- Review 4 -->
-                        <div class="card-hover bg-white p-6 rounded-2xl warm-card hover:shadow-xl">
+                        <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-purple-200">
                             <div class="flex items-start gap-4 mb-4">
                                 <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">J</div>
                                 <div class="flex-1">
@@ -687,7 +641,7 @@
                                 </div>
                                 <i class="fa-brands fa-google text-gray-300 text-lg"></i>
                             </div>
-                            <div class="flex text-warm-400 text-sm mb-3 gap-0.5">
+                            <div class="flex text-amber-400 text-sm mb-3 gap-0.5">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                             <p class="text-gray-600 text-sm leading-relaxed">"Great place! Owners are so nice. They helped us with our car issue. Amazing views and lovely hospitality. Highly recommended!"</p>
@@ -702,19 +656,19 @@
     <div class="h-64 bg-fixed bg-center bg-cover relative" style="background-image: url(source/supra.png);">
         <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 flex items-center justify-center">
             <h2 class="text-white font-serif text-4xl md:text-6xl font-bold text-center">
-                Unwind in <span class="text-warm-300">Ubisa</span>
+                Unwind in <span class="text-amber-300">Ubisa</span>
             </h2>
         </div>
     </div>
 
     <!-- Location & Contact Section -->
     <section id="location" class="py-20 md:py-32 bg-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-warm-100 rounded-full blur-3xl opacity-30 z-0"></div>
+        <div class="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-20 z-0"></div>
 
         <div class="container mx-auto px-4 relative z-10">
-            <div class="flex flex-col-reverse lg:flex-row gap-8 rounded-3xl overflow-hidden shadow-2xl bg-white border border-warm-200">
+            <div class="flex flex-col-reverse lg:flex-row gap-8 rounded-3xl overflow-hidden shadow-2xl bg-white border border-gray-200">
                 <!-- Map -->
-                <div class="w-full lg:w-1/2 bg-gray-200 min-h-[500px] relative group overflow-hidden rounded-3xl">
+                <div class="w-full lg:w-1/2 bg-gray-200 min-h-[500px] relative group overflow-hidden">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1871.605863829957!2d43.22501145680617!3d42.09764664719736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sde!4m9!3e6!4m0!4m6!3m5!1s0x404072a1d8b85581:0x2c8c9b0a0c8c8c8c!2sUbisa+Family+Guesthouse!3m2!1d42.097647!2d43.225011!5e0!3m2!1sen!2sde!4v1615000000000"
                         width="100%" 
@@ -729,16 +683,15 @@
 
                 <!-- Contact Info -->
                 <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
-                    <span class="inline-block text-warm-700 font-bold tracking-widest text-xs uppercase mb-2 bg-warm-100 px-4 py-2 rounded-full w-fit">Get in Touch</span>
-                    <div class="accent-bar mb-6"></div>
+                    <span class="inline-block text-green-700 font-bold tracking-widest text-xs uppercase mb-4 bg-green-50 px-4 py-2 rounded-full w-fit">Get in Touch</span>
                     
                     <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">Let's Connect</h2>
                     <p class="text-gray-600 mb-10 text-lg">Just 50-55 km from Kutaisi, near the E60 highway. Ready to experience Georgian warmth?</p>
 
                     <div class="space-y-5">
                         <!-- Phone Georgia -->
-                        <a href="tel:+995511106285" class="flex items-center gap-4 p-4 rounded-xl hover:bg-warm-50 transition group border border-warm-200/50 hover:border-warm-400/50">
-                            <div class="w-12 h-12 bg-gradient-to-br from-warm-100 to-warm-200 rounded-full flex items-center justify-center text-warm-700 group-hover:from-warm-600 group-hover:to-warm-700 group-hover:text-white transition-all">
+                        <a href="tel:+995511106285" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition group">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center text-green-700 group-hover:from-green-600 group-hover:to-green-700 group-hover:text-white transition-all">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
@@ -748,7 +701,7 @@
                         </a>
 
                         <!-- Phone Germany -->
-                        <a href="tel:+4915254399728" class="flex items-center gap-4 p-4 rounded-xl hover:bg-warm-50 transition group border border-warm-200/50 hover:border-warm-400/50">
+                        <a href="tel:+4915254399728" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition group">
                             <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center text-blue-700 group-hover:from-blue-600 group-hover:to-blue-700 group-hover:text-white transition-all">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
@@ -759,7 +712,7 @@
                         </a>
 
                         <!-- Email -->
-                        <a href="mailto:ubisa.guesthouse@gmail.com" class="flex items-center gap-4 p-4 rounded-xl hover:bg-warm-50 transition group border border-warm-200/50 hover:border-warm-400/50">
+                        <a href="mailto:ubisa.guesthouse@gmail.com" class="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition group">
                             <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center text-purple-700 group-hover:from-purple-600 group-hover:to-purple-700 group-hover:text-white transition-all">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
@@ -771,7 +724,7 @@
                     </div>
 
                     <!-- CTA Button -->
-                    <a href="https://wa.me/995511106285" target="_blank" class="glow-button w-full mt-10 bg-gradient-to-r from-warm-500 to-warm-600 hover:from-warm-600 hover:to-warm-700 text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:shadow-2xl">
+                    <a href="https://wa.me/995511106285" target="_blank" class="glow-button w-full mt-10 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:shadow-2xl">
                         <i class="fa-brands fa-whatsapp text-2xl"></i>
                         Chat & Book Now
                     </a>
@@ -782,7 +735,7 @@
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16 border-t border-gray-800 relative overflow-hidden">
-        <div class="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-warm-900/20 rounded-full blur-3xl opacity-30 z-0"></div>
+        <div class="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-green-900/20 rounded-full blur-3xl opacity-30 z-0"></div>
 
         <div class="container mx-auto px-6 relative z-10">
             <!-- Logo -->
@@ -792,15 +745,15 @@
 
             <!-- Navigation -->
             <div class="flex flex-wrap justify-center gap-6 md:gap-12 mb-12 text-sm font-semibold text-gray-300 uppercase tracking-widest">
-                <a href="#about" class="hover:text-white hover:text-warm-300 transition">About</a>
-                <a href="#rooms" class="hover:text-white hover:text-warm-300 transition">Rooms</a>
-                <a href="#experience" class="hover:text-white hover:text-warm-300 transition">Experience</a>
-                <a href="#location" class="hover:text-white hover:text-warm-300 transition">Contact</a>
+                <a href="#about" class="hover:text-white hover:text-amber-300 transition">About</a>
+                <a href="#rooms" class="hover:text-white hover:text-amber-300 transition">Rooms</a>
+                <a href="#experience" class="hover:text-white hover:text-amber-300 transition">Experience</a>
+                <a href="#location" class="hover:text-white hover:text-amber-300 transition">Contact</a>
             </div>
 
             <!-- Social Links -->
             <div class="flex justify-center gap-4 mb-12">
-                <a href="https://maps.app.goo.gl/HZ7cCmzTK1wCW8yTA" class="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-warm-600 hover:text-white transition group">
+                <a href="https://maps.app.goo.gl/HZ7cCmzTK1wCW8yTA" class="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-600 hover:text-white transition group">
                     <i class="fa-brands fa-google"></i>
                 </a>
                 <a href="https://www.booking.com/Share-TOzb0qF" class="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition group">
@@ -809,7 +762,7 @@
                 <a href="https://www.airbnb.de/rooms/14687784" class="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-pink-600 hover:text-white transition group">
                     <i class="fa-brands fa-airbnb"></i>
                 </a>
-                <a href="https://wa.me/995511106285" class="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-warm-600 hover:text-white transition group">
+                <a href="https://wa.me/995511106285" class="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-600 hover:text-white transition group">
                     <i class="fa-brands fa-whatsapp"></i>
                 </a>
             </div>
