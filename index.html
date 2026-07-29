@@ -8,120 +8,126 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Georgian:wght@400;500;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Lato', 'sans-serif'],
-                        serif: ['Lato', 'sans-serif'],
+                        sans: ['Helvetica', 'Helvetica Neue', 'Noto Sans Georgian', 'Arial', 'sans-serif'],
+                        serif: ['Merriweather', 'Noto Sans Georgian', 'serif'],
                     },
-                    colors: {
-                        green: {
-                            50: '#f0fdf4',
-                            800: '#166534',
-                            900: '#14532d',
-                        },
-                        earth: {
-                            100: '#f5f5f4',
-                            800: '#44403c',
-                        }
-                    }
                 }
             }
         }
     </script>
     <style>
         .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards ;
-            opacity: 0 ;
-            transform: translateY(20px) rotate(2deg);
+            animation: fadeInUp 0.7s ease-out forwards;
+            opacity: 0;
+            transform: translateY(14px);
         }
         @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Traveler Animation */
-        .traveler-animation {
-            position: absolute;
-            bottom: 4px;
-            left: 0;
-            opacity: 0;
-            animation: driveAcross 20s linear infinite;
-            white-space: nowrap;
+        /* ---------- Road Trip band (map + distances) ---------- */
+        .road-band{ background: #14532D; color: #FBF7F0; }
+        .road-band .eyebrow{ color: #B5502F; }
+        .road-band h2{ color: #FBF7F0; }
+        .road-band p.lede{ color: #FBF7F0; }
+
+        .road-grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        @media (max-width: 860px){
+            .road-grid{ grid-template-columns: 1fr; }
         }
 
-        /* Timing delays to sequence different travelers */
-        .traveler-car { animation-delay: 0s; }
-        .traveler-bike { animation-delay: 4s; }
-        .traveler-motor { animation-delay: 8s; }
-        .traveler-rv { animation-delay: 12s; }
-        .traveler-bk { animation-delay: 16s; }
-
-        @keyframes driveAcross {
-            0% { transform: translateX(-150px); opacity: 0; }
-            5% { opacity: 1; }
-            /* Pause at the guesthouse */
-            65% { transform: translateX(calc(100vw - 220px)); opacity: 1; }
-            80% { transform: translateX(calc(100vw - 220px)); opacity: 1; }
-            /* Continue driving off screen */
-            95% { opacity: 1; }
-            100% { transform: translateX(100vw); opacity: 0; }
+        .map-art{
+            background: rgba(000,222,220,0.06);
+            border: 1px solid rgba(251,247,240,0.18);
+            border-radius: 4px;
+            padding: 20px;
         }
+        .map-art svg{ width: 100%; height: auto; }
 
-        /* Responsive adjustments for the animation pause point */
-        @media (min-width: 768px) {
-            @keyframes driveAcross {
-                0% { transform: translateX(-150px); opacity: 0; }
-                5% { opacity: 1; }
-                65% { transform: translateX(calc(100vw - 420px)); opacity: 1; }
-                80% { transform: translateX(calc(100vw - 420px)); opacity: 1; }
-                95% { opacity: 1; }
-                100% { transform: translateX(100vw); opacity: 0; }
-            }
+        .distance-list{ list-style: none; margin-top: 20px; }
+        .distance-list li{
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(251,247,240,0.16);
+            font-size: 0.95rem;
         }
+        .distance-list li .place{ font-weight: 500; }
+        .distance-list li .dist{ color: #FBF7F0; font-variant-numeric: tabular-nums; }
+
+        .transport-block{ margin-top: 34px; }
+        .transport-block h3{ color: #FBF7F0; font-size: 1.05rem; margin-bottom: 12px; font-weight: 700; }
+        .transport-block p{ color: #FBF7F0; font-size: 0.92rem; margin-bottom: 8px; }
+
+        /* Review platform tabs */
+        .review-tab-btn{ background: #fff; color: #6b7280; border-color: #e5e7eb; }
+        .review-tab-btn.active{ background: #14532D; color: #fff; border-color: #14532D; }
+
+        /* Language toggle */
+        .lang-btn { transition: all 0.2s ease; }
+        .lang-btn.active { background: #B5502F; color: #fff; }
     </style>
 </head>
 <body class="font-sans text-gray-700 antialiased bg-stone-50">
 
     <!-- Navigation -->
-    <nav id="navbar" class="w-full z-50 transition-all duration-300 bg-white backdrop-blur-md shadow-sm fixed top-0">       
+    <nav id="navbar" class="w-full z-50 transition-all duration-300 bg-white shadow-sm fixed top-0">
          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#" class="flex items-center gap-2 group">
-                        <img src="source/Header_no_background.png" alt="Ubisa Family Guesthouse" class="h-20 w-auto object-left scale-[3] origin-left">
+                        <div class="h-16 w-56 overflow-hidden flex items-center justify-center rounded-md">
+                            <img src="source/Header_1.jpg" alt="Ubisa Family Guesthouse" class="w-full h-auto object-cover scale-90">
+                        </div>
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-gray-600 hover:text-green-700 font-medium transition-colors">About</a>
-                    <a href="#rooms" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Rooms</a>
-                    <a href="#experience" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Experience</a>
-                    <a href="#location" class="text-gray-600 hover:text-green-700 font-medium transition-colors">Location</a>
-                    <a href="https://wa.me/995511106285" target="_blank" class="bg-green-700 hover:bg-green-800 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-xl flex items-center gap-2 transform hover:-translate-y-0.5">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> Book Now
+                    <a href="#about" data-i18n="nav.about" class="text-gray-600 hover:text-[#14532D] font-medium transition-colors">About</a>
+                    <a href="#rooms" data-i18n="nav.rooms" class="text-gray-600 hover:text-[#14532D] font-medium transition-colors">Rooms</a>
+                    <a href="#location" data-i18n="nav.location" class="text-gray-600 hover:text-[#14532D] font-medium transition-colors">Location</a>
+
+                    <!-- Language toggle -->
+                    <div class="flex items-center border border-gray-200 rounded-full overflow-hidden text-xs font-bold">
+                        <button onclick="setLang('en')" id="lang-en" class="lang-btn active px-3 py-1.5">EN</button>
+                        <button onclick="setLang('de')" id="lang-de" class="lang-btn px-3 py-1.5 text-gray-500">DE</button>
+                        <button onclick="setLang('ka')" id="lang-ka" class="lang-btn px-3 py-1.5 text-gray-500">ქა</button>
+                    </div>
+
+                    <a href="https://wa.me/995511106285" target="_blank" class="bg-[#14532D] hover:bg-[#0B3D21] text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-xl flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> <span data-i18n="nav.book">Book Now</span>
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-green-700 focus:outline-none p-2">
+                <div class="md:hidden flex items-center gap-3">
+                    <div class="flex items-center border border-gray-300 rounded-full overflow-hidden text-xs font-bold">
+                        <button onclick="setLang('en')" id="lang-en-m" class="lang-btn active px-2 py-1">EN</button>
+                        <button onclick="setLang('de')" id="lang-de-m" class="lang-btn px-2 py-1 text-gray-500">DE</button>
+                        <button onclick="setLang('ka')" id="lang-ka-m" class="lang-btn px-2 py-1 text-gray-500">ქა</button>
+                    </div>
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-[#14532D] focus:outline-none p-2">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -131,12 +137,11 @@
         <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
             <div class="px-4 pt-2 pb-6 space-y-1 shadow-lg">
-                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">About Us</a>
-                <a href="#rooms" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Rooms</a>
-                <a href="#experience" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Experience</a>
-                <a href="#location" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-green-700 hover:bg-green-50">Location</a>
-                <a href="https://wa.me/995511106285" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold text-white bg-green-600 hover:bg-green-700">
-                    <i class="fa-brands fa-whatsapp mr-2"></i> Book via WhatsApp
+                <a href="#about" data-i18n="nav.about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-[#14532D] hover:bg-green-50">About Us</a>
+                <a href="#rooms" data-i18n="nav.rooms" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-[#14532D] hover:bg-green-50">Rooms</a>
+                <a href="#location" data-i18n="nav.location" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-[#14532D] hover:bg-green-50">Location</a>
+                <a href="https://wa.me/995511106285" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold text-white bg-[#14532D] hover:bg-[#0B3D21]">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> <span data-i18n="nav.bookWa">Book via WhatsApp</span>
                 </a>
             </div>
         </div>
@@ -144,88 +149,97 @@
 
     <!-- Hero Section -->
     <div class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Video with Overlay -->
         <div class="absolute inset-0 z-0">
             <video autoplay muted loop playsinline class="w-full h-full object-cover">
                 <source src="source/PXL_20230420_063528017.MP.mp4" type="video/mp4">
                 <img src="https://images.unsplash.com/photo-1566895315354-2c6c0b938f38?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Georgian Mountains" class="w-full h-full object-cover">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+            <div class="absolute inset-0 bg-[#14532D]/50"></div>
         </div>
 
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
-            <span class="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-semibold tracking-wide mb-6 fade-in-up" style="animation-delay: 0.1s;">
-                WELCOME TO OUR
+            <span data-i18n="hero.badge" class="block text-white/90 text-sm font-semibold tracking-[0.2em] uppercase mb-5 fade-in-up" style="animation-delay: 0.1s;">
+                Welcome to our
             </span>
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight fade-in-up shadow-sm" style="animation-delay: 0.3s;">
-                Authentic Georgian <br/><span class="text-yellow-400 italic">Guesthouse</span>
+                <span data-i18n="hero.title">Authentic Georgian <br/><span class="text-[#E8720C] italic">Guesthouse</span></span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed fade-in-up" style="animation-delay: 0.5s;">
+            <p data-i18n="hero.lede" class="text-lg md:text-xl text-gray-100 mb-10 max-w-2xl mx-auto leading-relaxed fade-in-up" style="animation-delay: 0.5s;">
                 Escape the city and unwind in our family-run guesthouse. Enjoy homemade wine, mountain views, and the true taste of Georgia.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style="animation-delay: 0.7s;">
-                <a href="https://wa.me/995511106285" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105 shadow-xl flex items-center justify-center gap-3">
-                    <i class="fa-brands fa-whatsapp text-2xl"></i> Book via WhatsApp
+                <a href="https://wa.me/995511106285" target="_blank" class="bg-[#14532D] hover:bg-[#0B3D21] text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors shadow-lg flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> <span data-i18n="nav.bookWa">Book via WhatsApp</span>
                 </a>
-                <a href="#about" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center">
+                <a href="#about" data-i18n="hero.explore" class="text-white border border-white/40 px-8 py-4 rounded-full font-semibold text-lg transition-colors hover:bg-white/10 flex items-center justify-center">
                     Explore More
                 </a>
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block text-white/70">
             <i class="fa-solid fa-chevron-down text-2xl"></i>
         </div>
     </div>
+<!-- Book Now Section -->
+    <section id="book" class="py-16 md:py-20 bg-stone-50 border-b border-stone-100">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 data-i18n="book.eyebrow" class="text-[#E8720C] font-bold tracking-widest text-sm uppercase mb-3">Availability</h2>
+            <h3 data-i18n="book.title" class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Book Your Stay</h3>
+            <p data-i18n="book.lede" class="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">Check availability and book directly with us — no booking fees, best price guaranteed.</p>
+            <div class="bg-stone-50  rounded-1xl shadow-xl border border-green-100 p-4 md:p-8">
+                <div class="ftb-widget" data-id="43637" data-token="3fX6DPwRAu7lukDQM621SQp5QfoCxSaImZ2O5DnxuHwR785nDaPAMuAIppu83"></div>
+            </div>
+        </div>
+    </section>
+    <script src="https://widget.freetobook.com/widget.js?v=20190925"></script>
 
     <!-- About Section -->
-    <section id="about" class="py-20 md:py-32 bg-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-green-50 rounded-full blur-3xl opacity-50 z-0"></div>
-        <div class="container mx-auto px-4 relative z-10">
+    <section id="about" class="py-20 md:py-32 bg-white">
+        <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 <div class="w-full lg:w-1/2">
                     <div class="relative shadow-lg hover:shadow-2xl transition-all duration-300">
-                        <img src="source/original_noTEXT.png" alt="Cozy Interior" class="rounded-2xl shadow-2xl  w-full object-cover h-[500px]">
+                        <img src="source/original_noTEXT.png" alt="Cozy Interior" class="rounded-2xl shadow-2xl w-full object-cover h-[500px]">
                         <div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-xl hidden md:block">
                             <div class="flex items-center gap-4">
-                                <div class="bg-green-100 p-3 rounded-full text-green-700">
+                                <div class="bg-green-50 p-3 rounded-full text-[#14532D]">
                                     <i class="fa-solid fa-users text-2xl"></i>
                                 </div>
                                 <div>
-                                    <p class="text-sm text-gray-500 font-semibold">Capacity</p>
-                                    <p class="text-xl font-bold text-gray-900">Up to 8 Guests</p>
+                                    <p data-i18n="about.capacityLabel" class="text-sm text-gray-500 font-semibold">Capacity</p>
+                                    <p data-i18n="about.capacityValue" class="text-xl font-bold text-gray-900">Up to 8 Guests</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2">
-                    <h2 class="text-green-800 font-bold tracking-widest text-sm uppercase mb-3">Our Story</h2>
-                    <h3 class="text-4xl font-serif font-bold text-gray-900 mb-6 leading-tight">A Home Away From Home in the Mountains</h3>
-                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                    <h2 data-i18n="about.eyebrow" class="text-[#14532D] font-bold tracking-widest text-sm uppercase mb-3">Our Story</h2>
+                    <h3 data-i18n="about.title" class="text-4xl font-serif font-bold text-gray-900 mb-6 leading-tight">A Home Away From Home in the Mountains</h3>
+                    <p data-i18n="about.p1" class="text-gray-600 mb-6 text-lg leading-relaxed">
                         Situated just 50-55 km from Kutaisi and close to the E60 highway, <strong>Ubisa Family Guesthouse</strong> is your perfect stopover on a Georgian road trip or a dedicated escape from city life.
                     </p>
-                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                    <p data-i18n="about.p2" class="text-gray-600 mb-8 text-lg leading-relaxed">
                         We offer a unique opportunity to experience authentic local life. My family prepares delicious dishes from Georgian cuisine, including our famous Khachapuri and homemade wine. Whether you want to hike, fish, or simply relax on the terrace, our doors are open.
                     </p>
-                    
+
                     <div class="grid grid-cols-2 gap-6">
                         <div class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-green-600 mt-1"></i>
-                            <span class="text-gray-700 font-medium">Family Run</span>
+                            <i class="fa-solid fa-check text-[#14532D] mt-1"></i>
+                            <span data-i18n="about.f1" class="text-gray-700 font-medium">Family Run</span>
                         </div>
                         <div class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-green-600 mt-1"></i>
-                            <span class="text-gray-700 font-medium">Mountain Views</span>
+                            <i class="fa-solid fa-check text-[#14532D] mt-1"></i>
+                            <span data-i18n="about.f2" class="text-gray-700 font-medium">Mountain Views</span>
                         </div>
                         <div class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-green-600 mt-1"></i>
-                            <span class="text-gray-700 font-medium">Homemade Wine</span>
+                            <i class="fa-solid fa-check text-[#14532D] mt-1"></i>
+                            <span data-i18n="about.f3" class="text-gray-700 font-medium">Homemade Wine</span>
                         </div>
                         <div class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-green-600 mt-1"></i>
-                            <span class="text-gray-700 font-medium">Free WiFi</span>
+                            <i class="fa-solid fa-check text-[#14532D] mt-1"></i>
+                            <span data-i18n="about.f4" class="text-gray-700 font-medium">Free WiFi</span>
                         </div>
                     </div>
                 </div>
@@ -237,62 +251,71 @@
     <section id="rooms" class="py-20 bg-stone-50 border-t border-stone-100">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-green-900 font-bold tracking-widest text-sm uppercase mb-3">Accommodation</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Our Comfortable Rooms</h3>
-                <p class="text-gray-600 text-lg">We have three spacious bedrooms, perfect for couples, families, or groups up to 8 people. Each room features a sitting area and mountain views.</p>
+                <h2 data-i18n="rooms.eyebrow" class="text-[#14532D] font-bold tracking-widest text-sm uppercase mb-3">Accommodation</h2>
+                <h3 data-i18n="rooms.title" class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Our Comfortable Rooms</h3>
+                <p data-i18n="rooms.lede" class="text-gray-600 text-lg">We have three spacious bedrooms, perfect for couples, families, or groups up to 8 people. Each room features a sitting area and mountain views.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Room 1 -->
-                <div class="group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-white">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="source/room1.png" alt="Bedroom 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 right-4 bg-green-600 backdrop-blur-sm px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
+                <div class="group rounded-lg overflow-hidden border border-green-100 bg-white flex flex-col h-full">
+                    <div class="relative h-64 overflow-hidden bg-green-100 flex-shrink-0">
+                        <img src="source/room1.png" alt="Bedroom 1" class="w-full h-full object-cover transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden absolute inset-0 items-center justify-center text-green-400">
+                            <i class="fa-solid fa-bed text-4xl"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-[#E8720C] px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
                             95 Gel
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-serif font-bold text-gray-900 mb-2">Double Room Private Bathroom</h4>
-                        <p class="text-gray-600 text-sm mb-4">A cozy room featuring a comfortable double bed, sitting area, and access to a shared balcony with stunning views.</p>
-                        <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <span class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests + Child</span>
-                            <a href="https://wa.me/995511106285" target="_blank" class="text-green-700 font-medium hover:text-green-900 text-sm">Check Availability &rarr;</a>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h4 data-i18n="rooms.r1.title" class="text-xl font-serif font-bold text-gray-900 mb-2 min-h-[3.5rem]">Double Room Private Bathroom</h4>
+                        <p data-i18n="rooms.r1.desc" class="text-gray-600 text-sm mb-4 flex-1">A cozy room featuring a comfortable double bed, sitting area, and access to a shared balcony with stunning views.</p>
+                        <div class="flex justify-between items-center border-t border-gray-100 pt-4 mt-auto">
+                            <span data-i18n="rooms.r1.guests" class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests + Child</span>
+                            <a href="https://wa.me/995511106285" target="_blank" data-i18n="rooms.check" class="text-[#14532D] font-medium hover:text-[#0B3D21] text-sm">Check Availability &rarr;</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Room 2 -->
-                <div class="group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-white transform md:-translate-y-4">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="source/room2.png" alt="Bedroom 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 right-4 bg-green-600 px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
+                <div class="group rounded-lg overflow-hidden border border-green-100 bg-white flex flex-col h-full">
+                    <div class="relative h-64 overflow-hidden bg-green-100 flex-shrink-0">
+                        <img src="source/room2.png" alt="Bedroom 2" class="w-full h-full object-cover transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden absolute inset-0 items-center justify-center text-green-400">
+                            <i class="fa-solid fa-bed text-4xl"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-[#E8720C] px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
                             75 Gel
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-serif font-bold text-gray-900 mb-2">Double Room</h4>
-                        <p class="text-gray-600 text-sm mb-4">Spacious accommodation perfect for families. Includes a sitting area and plenty of natural light.</p>
-                        <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <span class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests</span>
-                            <a href="https://wa.me/995511106285" target="_blank" class="text-green-700 font-medium hover:text-green-900 text-sm">Check Availability &rarr;</a>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h4 data-i18n="rooms.r2.title" class="text-xl font-serif font-bold text-gray-900 mb-2 min-h-[3.5rem]">Double Room</h4>
+                        <p data-i18n="rooms.r2.desc" class="text-gray-600 text-sm mb-4 flex-1">Spacious accommodation perfect for families. Includes a sitting area and plenty of natural light.</p>
+                        <div class="flex justify-between items-center border-t border-gray-100 pt-4 mt-auto">
+                            <span data-i18n="rooms.r2.guests" class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests</span>
+                            <a href="https://wa.me/995511106285" target="_blank" data-i18n="rooms.check" class="text-[#14532D] font-medium hover:text-[#0B3D21] text-sm">Check Availability &rarr;</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Room 3 -->
-                <div class="group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-white">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="source/room3.png" alt="Bedroom 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 right-4 bg-green-600 backdrop-blur-sm px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
+                <div class="group rounded-lg overflow-hidden border border-green-100 bg-white flex flex-col h-full">
+                    <div class="relative h-64 overflow-hidden bg-green-100 flex-shrink-0">
+                        <img src="source/room3.png" alt="Bedroom 3" class="w-full h-full object-cover transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hidden absolute inset-0 items-center justify-center text-green-400">
+                            <i class="fa-solid fa-bed text-4xl"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-[#E8720C] px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
                             75 Gel
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-serif font-bold text-gray-900 mb-2">Twin Room</h4>
-                        <p class="text-gray-600 text-sm mb-4">Ideal for friends or solo travelers, featuring comfortable twin beds and a relaxing atmosphere.</p>
-                        <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <span class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests</span>
-                            <a href="https://wa.me/995511106285" target="_blank" class="text-green-700 font-medium hover:text-green-900 text-sm">Check Availability &rarr;</a>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h4 data-i18n="rooms.r3.title" class="text-xl font-serif font-bold text-gray-900 mb-2 min-h-[3.5rem]">Twin Room</h4>
+                        <p data-i18n="rooms.r3.desc" class="text-gray-600 text-sm mb-4 flex-1">Ideal for friends or solo travelers, featuring comfortable twin beds and a relaxing atmosphere.</p>
+                        <div class="flex justify-between items-center border-t border-gray-100 pt-4 mt-auto">
+                            <span data-i18n="rooms.r3.guests" class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests</span>
+                            <a href="https://wa.me/995511106285" target="_blank" data-i18n="rooms.check" class="text-[#14532D] font-medium hover:text-[#0B3D21] text-sm">Check Availability &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -300,195 +323,100 @@
         </div>
     </section>
 
-    <!-- Road Trip Animation Section -->
-    <section class="py-16 bg-green-900 overflow-hidden relative border-y border-white/10">
-        <!-- Mountain Backdrop -->
-        <div class="absolute bottom-0 w-full h-48 opacity-10 flex justify-around items-end select-none pointer-events-none">
-            <i class="fa-solid fa-mountain text-[150px] text-white"></i>
-            <i class="fa-solid fa-mountain text-[200px] text-white mb-8"></i>
-            <i class="fa-solid fa-mountain text-[120px] text-white"></i>
-            <i class="fa-solid fa-mountain text-[180px] text-white mb-4"></i>
-        </div>
+    <!-- Road Trip Section -->
+    <section class="road-band py-16 md:py-20">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="road-grid">
+                <div>
+                    <div data-i18n="road2.eyebrow" class="eyebrow text-xs font-bold tracking-widest uppercase mb-3">Getting Here</div>
+                    <h2 data-i18n="road2.title" class="text-2xl md:text-3xl font-serif font-bold mb-4">Well Connected in Imereti</h2>
+                    <p data-i18n="road2.lede" class="lede text-base">Ubisa Family Guesthouse sits right by the E60, roughly 50–55 km from Kutaisi and about 200 km from Tbilisi — an easy stop whether you're passing through or staying a while.</p>
 
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-12">
-                <h3 class="text-2xl md:text-4xl font-serif font-bold text-white mb-4">A Perfect Roadstop For <br/><span class="text-yellow-400 italic">All Travelers</span></h3>
-                <p class="text-green-100 max-w-2xl mx-auto text-lg">
-                    Whether you're exploring Georgia by car, van, motorbike, or bicycle, our guesthouse offers the perfect pitstop near the E60 highway.
-                </p>
-            </div>
-
-            <!-- Road / Animation Container -->
-            <div class="relative h-32 border-b-4 border-dashed border-white/20 mb-8 mt-12">
-                
-                <!-- Guesthouse Icon (The Destination) -->
-                <div class="absolute bottom-0 right-10 md:right-40 text-yellow-400 text-center flex flex-col items-center">
-                    <span class="text-[10px] font-bold uppercase mb-2 bg-green-800/80 px-2 py-1 rounded text-white border border-yellow-400/30">Our Guesthouse</span>
-                    <i class="fa-solid fa-house-chimney text-6xl mb-[-4px] drop-shadow-[0_0_20px_rgba(250,204,21,0.4)]"></i>
+                    <div class="transport-block">
+                        <h3 data-i18n="road2.byCar">By Car</h3>
+                        <p data-i18n="road2.byCarText">From Tbilisi, follow the E60 west; the drive takes around 2.5–3 hours. From Kutaisi, it's about an hour. Free parking is available right at the house.</p>
+                        <h3 style="margin-top:20px;" data-i18n="road2.byPublic">By Public Transport</h3>
+                        <p data-i18n="road2.byPublicText">Marshrutkas heading from Tbilisi toward Kutaisi pass through Ubisa — just ask the driver to stop there. Let us know your arrival time and we're happy to help you find the way from the main road.</p>
+                    </div>
                 </div>
 
-                <!-- Traveler 1: Car -->
-                <div class="traveler-animation traveler-car text-white flex flex-col items-center">
-                    <div class="bg-yellow-400 text-green-900 text-[9px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Road Trip</div>
-                    <i class="fa-solid fa-car-side text-5xl"></i>
-                </div>
-
-                <!-- Traveler 2: Bicycle -->
-                <div class="traveler-animation traveler-bike text-white flex flex-col items-center">
-                    <div class="bg-blue-400 text-white text-[9px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Cyclist</div>
-                    <i class="fa-solid fa-bicycle text-5xl"></i>
-                </div>
-
-                <!-- Traveler 3: Motorbike -->
-                <div class="traveler-animation traveler-motor text-white flex flex-col items-center">
-                    <div class="bg-orange-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Adventurer</div>
-                    <i class="fa-solid fa-motorcycle text-5xl"></i>
-                </div>
-
-                <!-- Traveler 4: Wohnmobile (Van/Camper) -->
-                <div class="traveler-animation traveler-rv text-white flex flex-col items-center">
-                    <div class="bg-white text-green-900 text-[9px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Van Life</div>
-                    <i class="fa-solid fa-van-shuttle text-5xl"></i>
-                </div>
-            </div>
-
-             <!-- Traveler 5: Backpacking -->
-                <div class="traveler-animation traveler-bk text-white flex flex-col items-center">
-                    <div class="bg-white text-yellow-900 text-[9px] font-bold px-2 py-0.5 rounded-t-md mb-[-2px] uppercase shadow-lg">Backpacking</div>
-                    <i class="fa-solid fa-person-walking text-5xl"></i>
-                </div>
-            </div>
-            
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 text-center">
-                <div class="flex flex-col items-center gap-2 text-white/80">
-                    <i class="fa-solid fa-bicycle text-yellow-400 text-xl"></i>
-                    <span class="text-sm">Bicycle Friendly</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 text-white/80">
-                    <i class="fa-solid fa-motorcycle text-yellow-400 text-xl"></i>
-                    <span class="text-sm">Motorbike Parking</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 text-white/80">
-                    <i class="fa-solid fa-van-shuttle text-yellow-400 text-xl"></i>
-                    <span class="text-sm">Camper Friendly</span>
-                </div>
-                <div class="flex flex-col items-center gap-2 text-white/80">
-                    <i class="fa-solid fa-square-parking text-yellow-400 text-xl"></i>
-                    <span class="text-sm">Secure Parking</span>
+                <div>
+                    <div class="map-art">
+                        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+                            <!-- E60 highway -->
+                            <path d="M20 130 Q140 115 190 122 T380 55" stroke="#FBF7F0" stroke-width="2.5" fill="none" stroke-dasharray="2 9" stroke-linecap="round" opacity="0.55"/>
+                            <!-- Ubisa marker -->
+                            <circle cx="188" cy="123" r="7" fill="#E8720C"/>
+                            <circle cx="188" cy="123" r="14" fill="none" stroke="#B5502F" stroke-width="1.5" opacity="0.6"/>
+                            <text x="203" y="119" fill="#FBF7F0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700">Ubisa</text>
+                            <!-- Kutaisi -->
+                            <circle cx="30" cy="128" r="4" fill="#E8720C"/>
+                            <text x="40" y="132" fill="#DCFCE7" font-family="Helvetica, Arial, sans-serif" font-size="11">Kutaisi</text>
+                            <!-- Tbilisi -->
+                            <circle cx="378" cy="56" r="4" fill="#E8720C"/>
+                            <text x="340" y="46" fill="#DCFCE7" font-family="Helvetica, Arial, sans-serif" font-size="11">Tbilisi</text>
+                        </svg>
+                    </div>
+                    <ul class="distance-list">
+                        <li><span class="place" data-i18n="road2.e60">E60 Highway</span><span class="dist" data-i18n="road2.e60dist">2 min</span></li>
+                        <li><span class="place">Kutaisi</span><span class="dist">50 km</span></li>
+                        <li><span class="place" data-i18n="road2.airport">Kutaisi Airport</span><span class="dist">55 km</span></li>
+                        <li><span class="place">Tbilisi</span><span class="dist">200 km</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Amenities / Experience Section -->
-    <section id="experience" class="py-20 bg-stone-100">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Experience</h2>
-                <p class="text-gray-600 text-lg">Everything you need for a relaxing stay in the heart of nature.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors">
-                        <i class="fa-solid fa-utensils text-2xl text-green-700 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Authentic Cuisine</h3>
-                    <p class="text-gray-600">Start your day with a varied breakfast of hot dishes and freshly baked pastries. Try our delicious homemade Khachapuri.</p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-yellow-600 transition-colors">
-                        <i class="fa-solid fa-wine-glass text-2xl text-green-700 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Family Wine</h3>
-                    <p class="text-gray-600">No Georgian feast is complete without wine. Taste the wine made with love and tradition right here by our family.</p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors">
-                        <i class="fa-solid fa-mountain-sun text-2xl text-green-700 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Nature & Views</h3>
-                    <p class="text-gray-600">Rooms feature balconies with stunning mountain views. Explore the garden, go fishing nearby, or enjoy hiking trails.</p>
-                </div>
-                
-                 <!-- Card 4 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-yellow-600 transition-colors">
-                        <i class="fa-solid fa-fire-burner text-2xl text-green-700 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">BBQ Facilities</h3>
-                    <p class="text-gray-600">Make the most of the sunny weather with our barbecue facilities, perfect for a pleasant evening with friends or family.</p>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors">
-                        <i class="fa-solid fa-wifi text-2xl text-green-700 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Modern Amenities</h3>
-                    <p class="text-gray-600">Stay connected with complimentary WiFi throughout the property. We also offer free secure parking for your vehicle.</p>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-yellow-600 transition-colors">
-                        <i class="fa-solid fa-bed text-2xl text-green-700 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Comfortable Rooms</h3>
-                    <p class="text-gray-600">Three spacious bedrooms, each with a sitting area. Perfect for larger groups or families up to 8 people.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-<!-- Google Reviews Section -->
+    <!-- Google Reviews Section -->
     <section id="reviews" class="py-20 bg-stone-50">
         <div class="container mx-auto px-4 max-w-7xl">
             <div class="flex flex-col md:flex-row gap-12 items-start mb-12">
-                
-                <!-- Summary Column -->
+
                 <div class="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left md:sticky md:top-28 z-10">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Guest Reviews</h2>
+                    <h2 data-i18n="reviews.title" class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Guest Reviews</h2>
                     <div class="flex items-center gap-4 mb-2">
                         <span class="text-5xl font-bold text-gray-900">4.9</span>
                         <div class="flex flex-col">
                             <div class="flex text-yellow-400 text-xl">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                             </div>
-                            <span class="text-sm text-gray-500 mt-1 font-medium">Based on Google Reviews</span>
+                            <span data-i18n="reviews.based" class="text-sm text-gray-500 mt-1 font-medium">Based on Google Reviews</span>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-6 leading-relaxed">See what our guests from all over the world have to say about their stay at Ubisa Family Guesthouse.</p>
-                    
-                    <!-- Review Links -->
+                    <p data-i18n="reviews.lede" class="text-gray-600 mb-6 leading-relaxed">See what our guests from all over the world have to say about their stay at Ubisa Family Guesthouse.</p>
+
                     <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-                        <a href="https://www.google.com/maps/search/Ubisa+Family+Guesthouse" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 bg-white border border-gray-200 rounded-full font-medium text-gray-700 hover:text-pink-600 hover:border-pink-300 hover:bg-pink-50 transition-all duration-300 shadow-sm hover:shadow-md">
-                            <i class="fa-brands fa-google text-blue-500 text-xl"></i> Write a Review
+                        <a href="https://www.google.com/maps/search/Ubisa+Family+Guesthouse" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 bg-white border border-gray-200 rounded-full font-medium text-gray-700 hover:text-[#14532D] hover:border-green-300 hover:bg-green-50 transition-all duration-300 shadow-sm hover:shadow-md">
+                            <i class="fa-brands fa-google text-blue-500 text-xl"></i> <span data-i18n="reviews.write">Write a Review</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Review Cards Grid -->
                 <div class="w-full md:w-2/3">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        
-                        <!-- Review 1 -->
+                    <!-- Platform tabs -->
+                    <div class="flex gap-2 mb-6">
+                        <button onclick="setReviewTab('google')" id="review-tab-google" class="review-tab-btn active px-4 py-2 rounded-full text-sm font-semibold border transition-colors flex items-center gap-2">
+                            <i class="fa-brands fa-google"></i> Google
+                        </button>
+                        <button onclick="setReviewTab('booking')" id="review-tab-booking" class="review-tab-btn px-4 py-2 rounded-full text-sm font-semibold border transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-check"></i> Booking.com
+                        </button>
+                        <button onclick="setReviewTab('airbnb')" id="review-tab-airbnb" class="review-tab-btn px-4 py-2 rounded-full text-sm font-semibold border transition-colors flex items-center gap-2">
+                            <i class="fa-brands fa-airbnb"></i> Airbnb
+                        </button>
+                    </div>
+
+                    <!-- Google reviews (real) -->
+                    <div id="reviews-google" class="review-panel grid grid-cols-1 sm:grid-cols-2 gap-6">
+
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                             <div class="flex items-center gap-4 mb-4">
                                 <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-lg">M</div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 leading-none">Marc</h4>
-                                    <span class="text-xs text-gray-500">Local Guide</span>
+                                    <span data-i18n="reviews.localGuide" class="text-xs text-gray-500">Local Guide</span>
                                 </div>
                                 <i class="fa-brands fa-google text-gray-200 ml-auto text-xl"></i>
                             </div>
@@ -498,13 +426,12 @@
                             <p class="text-gray-600 text-sm leading-relaxed">"Familiar guesthouse directly next to the highway, easy to reach with fantastic dinner & breakfast, nice view and really calm, friendly owners."</p>
                         </div>
 
-                        <!-- Review 2 -->
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                             <div class="flex items-center gap-4 mb-4">
                                 <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold text-lg">J</div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 leading-none">Jana</h4>
-                                    <span class="text-xs text-gray-500">2 reviews</span>
+                                    <span data-i18n="reviews.count2" class="text-xs text-gray-500">2 reviews</span>
                                 </div>
                                 <i class="fa-brands fa-google text-gray-200 ml-auto text-xl"></i>
                             </div>
@@ -514,13 +441,12 @@
                             <p class="text-gray-600 text-sm leading-relaxed">"They accepted our booking at 10:00pm, cooked for us. We felt like at grandma's house. ❤️"</p>
                         </div>
 
-                        <!-- Review 3 -->
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                             <div class="flex items-center gap-4 mb-4">
-                                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold text-lg">T</div>
+                                <div class="w-12 h-12 bg-green-100 text-[#14532D] rounded-full flex items-center justify-center font-bold text-lg">T</div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 leading-none">Talal</h4>
-                                    <span class="text-xs text-gray-500">5 reviews</span>
+                                    <span data-i18n="reviews.count5" class="text-xs text-gray-500">5 reviews</span>
                                 </div>
                                 <i class="fa-brands fa-google text-gray-200 ml-auto text-xl"></i>
                             </div>
@@ -530,13 +456,12 @@
                             <p class="text-gray-600 text-sm leading-relaxed">"I enjoy the place a lot, the area surrounding, the family there very friendly, the food also was amazing. Peaceful and centered for many cities around."</p>
                         </div>
 
-                        <!-- Review 4 -->
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                             <div class="flex items-center gap-4 mb-4">
                                 <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-lg">J</div>
                                 <div>
                                     <h4 class="font-bold text-gray-900 leading-none">Josephine</h4>
-                                    <span class="text-xs text-gray-500">12 reviews</span>
+                                    <span data-i18n="reviews.count12" class="text-xs text-gray-500">12 reviews</span>
                                 </div>
                                 <i class="fa-brands fa-google text-gray-200 ml-auto text-xl"></i>
                             </div>
@@ -546,16 +471,148 @@
                             <p class="text-gray-600 text-sm leading-relaxed">"Was Great and the owners are really nice. We had an issue with our car and they helped us. Amazing view and lovely hospitality!"</p>
                         </div>
                     </div>
-                </div>
 
+                    <!-- Booking.com reviews (example placeholders — replace with real quotes) -->
+                    <div id="reviews-booking" class="review-panel hidden">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-green-100 text-[#14532D] rounded-full flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-calendar-check"></i></div>
+                                    <div>
+                                        <h4 data-i18n="reviews.verifiedGuest" class="font-bold text-gray-900 leading-none">Verified Guest</h4>
+                                        <span class="text-xs text-gray-500">Booking.com</span>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 text-sm mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p data-i18n="reviews.bookingPlaceholder1" class="text-gray-600 text-sm leading-relaxed">"We would definitely come back. Highly recommended!"</p>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-green-100 text-green-700 rounded-full flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-calendar-check"></i></div>
+                                    <div>
+                                        <h4 data-i18n="reviews.verifiedGuest" class="font-bold text-gray-900 leading-none">Verified Guest</h4>
+                                        <span class="text-xs text-gray-500">Booking.com</span>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 text-sm mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p data-i18n="reviews.bookingPlaceholder2" class="text-gray-600 text-sm leading-relaxed">"It was just an overnight stay in between a long car ride."</p>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-calendar-check"></i></div>
+                                    <div>
+                                        <h4 data-i18n="reviews.verifiedGuest" class="font-bold text-gray-900 leading-none">Verified Guest</h4>
+                                        <span class="text-xs text-gray-500">Booking.com</span>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 text-sm mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p data-i18n="reviews.bookingPlaceholder3" class="text-gray-600 text-sm leading-relaxed">"We absolutely loved this place! It felt like we stayed at our grandma's."</p>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-calendar-check"></i></div>
+                                    <div>
+                                        <h4 data-i18n="reviews.verifiedGuest" class="font-bold text-gray-900 leading-none">Verified Guest</h4>
+                                        <span class="text-xs text-gray-500">Booking.com</span>
+                                    </div>
+                                </div>
+                                <div class="flex text-yellow-400 text-sm mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p data-i18n="reviews.bookingPlaceholder4" class="text-gray-600 text-sm leading-relaxed">"Would recommend, but be careful driving there at night. Amazing view!"</p>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a href="https://www.booking.com/Share-TOzb0qF" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-full font-medium transition-colors">
+                                <span data-i18n="reviews.bookingCta">See Reviews on Booking.com</span> <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Airbnb reviews (example placeholders — replace with real quotes) -->
+                     <!-- Airbnb reviews -->
+                    <div id="reviews-airbnb" class="review-panel hidden">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-10 h-10 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center font-bold text-base">N</div>
+                                    <div>
+                                        <h4 class="font-bold text-stone-900 leading-none">Neil</h4>
+                                        <span class="text-xs text-stone-500">Airbnb</span>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-500 text-xs gap-1 mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-stone-600 text-sm leading-relaxed">"I have no hesitation in recommending to future guests."</p>
+                            </div>
+ 
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-10 h-10 bg-forest-100 text-forest-700 rounded-full flex items-center justify-center font-bold text-base">S</div>
+                                    <div>
+                                        <h4 class="font-bold text-stone-900 leading-none">Sydney</h4>
+                                        <span class="text-xs text-stone-500">Troy, Alabama</span>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-500 text-xs gap-1 mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                                </div>
+                                <p class="text-stone-600 text-sm leading-relaxed">"They have a garden full of wildflowers and cute animals."</p>
+                            </div>
+ 
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-10 h-10 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center font-bold text-base">L</div>
+                                    <div>
+                                        <h4 class="font-bold text-stone-900 leading-none">Lion</h4>
+                                        <span class="text-xs text-stone-500">Seit 2 Jahren auf Airbnb</span>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-500 text-xs gap-1 mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-stone-600 text-sm leading-relaxed">"Die Lage ist perfekt zum Entspannen und Runterkommen."</p>
+                            </div>
+ 
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-10 h-10 bg-forest-100 text-forest-700 rounded-full flex items-center justify-center font-bold text-base">N</div>
+                                    <div>
+                                        <h4 class="font-bold text-stone-900 leading-none">Natalia</h4>
+                                        <span class="text-xs text-stone-500">Seit 6 Jahren auf Airbnb</span>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-500 text-xs gap-1 mb-3">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-stone-600 text-sm leading-relaxed">"Tolle Kommunikation vor und während; die Eltern waren einladend und herzlich."</p>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a href="https://www.airbnb.de/rooms/14687784" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white rounded-full font-medium transition-colors text-sm">
+                                <span data-i18n="reviews.airbnbCta">See Reviews on Airbnb</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Visual Divider -->
-    <div class="h-64 bg-fixed bg-center bg-cover relative" style="background-image: url(source/supra.png);">        
+    <div class="h-64 bg-fixed bg-center bg-cover relative" style="background-image: url(source/supra.png);">
         <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <h2 class="text-white font-serif text-3xl md:text-5xl font-bold tracking-wider">Unwind in <span class="text-yellow-400">Ubisa</span></h2>
+            <h2 data-i18n="divider.title" class="text-white font-serif text-3xl md:text-5xl font-bold tracking-wider">Unwind in <span class="text-[#E8720C]">Ubisa</span></h2>
         </div>
     </div>
 
@@ -564,58 +621,62 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col-reverse lg:flex-row gap-12 rounded-2xl overflow-hidden shadow-2xl bg-white">
                 <div class="w-full lg:w-1/2 bg-gray-200 min-h-[400px] relative group">
-                    <iframe 
+                    <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1871.605863829957!2d43.22501145680617!3d42.09764664719736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sde!4v1772780035467!5m2!1sen!2sde"
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
                         class="absolute inset-0 w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500">
                     </iframe>
                 </div>
 
                 <div class="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center">
-                    <h2 class="text-3xl font-serif font-bold text-gray-900 mb-6">Get in Touch</h2>
-                    <p class="text-gray-600 mb-8">We are conveniently located just 50-55 km from Kutaisi, near the E60 highway. Ready to book your stay?</p>
+                    <h2 data-i18n="contact.title" class="text-3xl font-serif font-bold text-gray-900 mb-6">Get in Touch</h2>
+                    <p data-i18n="contact.lede" class="text-gray-600 mb-8">We are conveniently located just 50-55 km from Kutaisi, near the E60 highway. Ready to book your stay?</p>
 
                     <div class="space-y-6">
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-700">
+                            <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center text-[#14532D]">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-500">Georgia (GEO)</p>
-                                <a href="tel:+995511106285" class="text-lg font-bold text-gray-900 hover:text-green-700 transition-colors">+ 995 511 106285</a>
+                                <p data-i18n="contact.geo" class="text-sm text-gray-500">Georgia (GEO)</p>
+                                <a href="tel:+995511106285" class="text-lg font-bold text-gray-900 hover:text-[#14532D] transition-colors">+ 995 511 106285</a>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-700">
+                            <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center text-[#14532D]">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-500">Germany (DE)</p>
-                                <a href="tel:+4915254399728" class="text-lg font-bold text-gray-900 hover:text-green-700 transition-colors">+ 49 152 54399728</a>
+                                <p data-i18n="contact.de" class="text-sm text-gray-500">Germany (DE)</p>
+                                <a href="tel:+4915254399728" class="text-lg font-bold text-gray-900 hover:text-[#14532D] transition-colors">+ 49 152 54399728</a>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-700">
+                            <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center text-[#14532D]">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-500">Email Us</p>
-                                <a href="mailto:giorgisebiskveradze123@gmail.com" class="text-lg font-bold text-gray-900 hover:text-green-700 transition-colors">giorgisebiskveradze123@gmail.com</a>
+                                <p data-i18n="contact.email" class="text-sm text-gray-500">Email Us</p>
+                                <a href="mailto:ubisa.guesthouse@gmail.com" class="text-lg font-bold text-gray-900 hover:text-[#14532D] transition-colors">ubisa.guesthouse@gmail.com</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-10">
-                        <a href="https://wa.me/995511106285" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-lg shadow-lg flex items-center justify-center gap-3 transition-transform hover:-translate-y-1">
+                    <div class="mt-10 space-y-3">
+                        <a href="https://wa.me/995511106285" target="_blank" class="w-full bg-[#14532D] hover:bg-[#0B3D21] text-white font-bold py-4 px-6 rounded-lg shadow-lg flex items-center justify-center gap-3 transition-transform hover:-translate-y-1">
                             <i class="fa-brands fa-whatsapp text-2xl"></i>
-                            Chat & Book Direct
+                            <span data-i18n="contact.chat">Chat & Book Direct</span>
+                        </a>
+                        <a href="#book" class="w-full bg-white border-2 border-[#E8720C] text-[#E8720C] hover:bg-[#E8720C] hover:text-white font-bold py-3.5 px-6 rounded-lg flex items-center justify-center gap-3 transition-colors">
+                            <i class="fa-solid fa-calendar-check text-xl"></i>
+                            <span data-i18n="contact.bookWidget">Check Availability Online</span>
                         </a>
                     </div>
                 </div>
@@ -624,40 +685,44 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
-        <div class="container mx-auto px-6 flex flex-col items-center justify-center">
-            
-            <div class="mb-10">
-                <img src="source/original_noTEXT.png" alt="Ubisa Family Guesthouse Logo" class="h-72 w-auto object-contain brightness-0 invert">  
+    <footer class="bg-[#14532D] text-white py-14">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+                <div>
+                    <h3 class="font-serif text-xl mb-2">Ubisa Family Guesthouse</h3>
+                    <p data-i18n="footer.tagline" class="text-white-100 text-sm">Ubisa, Imereti, Georgia — 50–55 km from Kutaisi</p>
+                </div>
+
+                <div>
+                    <h4 data-i18n="footer.linksTitle" class="text-xs uppercase tracking-widest text-[#F2A65A] font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-white-100">
+                        <li><a href="#about" data-i18n="nav.about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#rooms" data-i18n="nav.rooms" class="hover:text-white transition-colors">Rooms</a></li>
+                        <li><a href="#location" data-i18n="nav.location" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 data-i18n="footer.connectTitle" class="text-xs uppercase tracking-widest text-[#F2A65A] font-semibold mb-3">Find Us & Connect</h4>
+                    <div class="flex items-center gap-4 mb-4 text-xl text-white-100">
+                        <a href="https://maps.app.goo.gl/HZ7cCmzTK1wCW8yTA" title="Google Maps" class="hover:text-white transition-colors"><i class="fa-brands fa-google"></i></a>
+                        <a href="https://www.booking.com/Share-TOzb0qF" title="Booking.com" class="hover:text-white transition-colors"><i class="fa-solid fa-calendar-check"></i></a>
+                        <a href="https://www.airbnb.de/rooms/14687784" title="Airbnb" class="hover:text-white transition-colors"><i class="fa-brands fa-airbnb"></i></a>
+                        <a href="https://wa.me/995511106285" title="WhatsApp" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    <p class="text-sm text-white-100 mb-1"><i class="fa-solid fa-phone mr-2 text-white-300"></i><a href="tel:+995511106285" class="hover:text-white transition-colors">+995 511 106285</a></p>
+                    <p class="text-sm text-white-100"><i class="fa-solid fa-envelope mr-2 text-white-300"></i><a href="mailto:ubisa.guesthouse@gmail.com" class="hover:text-white transition-colors">ubisa.guesthouse@gmail.com</a></p>
+                </div>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-8 mb-8 text-sm font-medium text-gray-300 uppercase tracking-widest">
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#rooms" class="hover:text-white transition-colors">Rooms</a>
-                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
-                <a href="#location" class="hover:text-white transition-colors">Contact</a>
-            </div>
-
-            <div class="flex gap-6 mb-8">
-                <a href="https://maps.app.goo.gl/HZ7cCmzTK1wCW8yTA" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-white hover:text-yellow-400 transition-all duration-300">
-                    <i class="fa-brands fa-google text-lg"></i>
-                </a>
-                    <a href="https://www.booking.com/Share-TOzb0qF" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-white hover:text-blue-400 transition-all duration-300">
-                    <i class="fa-solid fa-hotel"></i>
-                </a>
-                <a href="https://www.airbnb.de/rooms/14687784" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-white hover:text-pink-600 transition-all duration-300">
-                    <i class="fa-brands fa-airbnb text-lg"></i>
-                </a>
-                <a href="https://wa.me/995511106285" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-green-600 hover:text-white transition-all duration-300">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                </a>
-            </div>
-
-            <div class="border-t border-gray-800 w-full pt-8 text-center text-gray-500 text-xs">
-                <p>&copy; 2024 Ubisa Family Guesthouse. All rights reserved.</p>
+            <div class="pt-6 text-center md:text-left text-grey-300 text-xs">
+                <p data-i18n="footer.copy">&copy; 2026 Ubisa Family Guesthouse. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    
+    
 
     <!-- Scripts -->
     <script>
@@ -676,19 +741,270 @@
             });
         });
 
+        const floatingBookBtn = document.getElementById('floating-book-btn');
+        const bookSection = document.getElementById('book');
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('shadow-md');
-                navbar.classList.add('bg-white');
-                navbar.classList.remove('bg-white/10');
                 navbar.classList.replace('h-20', 'h-16');
             } else {
                 navbar.classList.remove('shadow-md');
-                navbar.classList.remove('bg-white');
-                navbar.classList.add('bg-white/10');
                 navbar.classList.replace('h-16', 'h-20');
             }
+
+            // Show floating book button after scrolling past the hero,
+            // hide it again while the real booking widget is in view.
+            const heroHeight = window.innerHeight;
+            const bookRect = bookSection.getBoundingClientRect();
+            const bookInView = bookRect.top < window.innerHeight && bookRect.bottom > 0;
+
+            if (window.scrollY > heroHeight * 0.8 && !bookInView) {
+                floatingBookBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            } else {
+                floatingBookBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            }
         });
+
+        function setReviewTab(platform){
+            ['google','booking','airbnb'].forEach(p => {
+                const panel = document.getElementById('reviews-' + p);
+                const btn = document.getElementById('review-tab-' + p);
+                if (p === platform){
+                    panel.classList.remove('hidden');
+                    btn.classList.add('active');
+                } else {
+                    panel.classList.add('hidden');
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // ---------- Language toggle (EN / DE) ----------
+        const translations = {
+            en: {
+                'nav.about': 'About', 'nav.rooms': 'Rooms', 'nav.experience': 'Experience', 'nav.location': 'Location',
+                'nav.book': 'Book Now', 'nav.bookWa': 'Book via WhatsApp',
+                'hero.badge': 'WELCOME TO OUR',
+                'hero.title': 'Authentic Georgian <br/><span class="text-[#E8720C] italic">Guesthouse</span>',
+                'hero.lede': 'Escape the city and unwind in our family-run guesthouse. Enjoy homemade wine, mountain views, and the true taste of Georgia.',
+                'hero.explore': 'Explore More',
+                'about.eyebrow': 'Our Story',
+                'about.title': 'A Home Away From Home in the Mountains',
+                'about.p1': 'Situated just 50-55 km from Kutaisi and close to the E60 highway, <strong>Ubisa Family Guesthouse</strong> is your perfect stopover on a Georgian road trip or a dedicated escape from city life.',
+                'about.p2': 'We offer a unique opportunity to experience authentic local life. My family prepares delicious dishes from Georgian cuisine, including our famous Khachapuri and homemade wine. Whether you want to hike, fish, or simply relax on the terrace, our doors are open.',
+                'about.capacityLabel': 'Capacity', 'about.capacityValue': 'Up to 8 Guests',
+                'about.f1': 'Family Run', 'about.f2': 'Mountain Views', 'about.f3': 'Homemade Wine', 'about.f4': 'Free WiFi',
+                'rooms.eyebrow': 'Accommodation', 'rooms.title': 'Our Comfortable Rooms',
+                'rooms.lede': 'We have three spacious bedrooms, perfect for couples, families, or groups up to 8 people. Each room features a sitting area and mountain views.',
+                'rooms.check': 'Check Availability &rarr;',
+                'rooms.r1.title': 'Double Room Private Bathroom',
+                'rooms.r1.desc': 'A cozy room featuring a comfortable double bed, sitting area, and access to a shared balcony with stunning views.',
+                'rooms.r1.guests': '<i class="fa-solid fa-user-group mr-2"></i>2 Guests + Child',
+                'rooms.r2.title': 'Double Room',
+                'rooms.r2.desc': 'Spacious accommodation perfect for families. Includes a sitting area and plenty of natural light.',
+                'rooms.r2.guests': '<i class="fa-solid fa-user-group mr-2"></i>2 Guests',
+                'rooms.r3.title': 'Twin Room',
+                'rooms.r3.desc': 'Ideal for friends or solo travelers, featuring comfortable twin beds and a relaxing atmosphere.',
+                'rooms.r3.guests': '<i class="fa-solid fa-user-group mr-2"></i>2 Guests',                'book.eyebrow': 'Availability', 'book.title': 'Book Your Stay',
+                'book.lede': 'Check availability and book directly with us — no booking fees, best price guaranteed.',
+
+                'floatBook.cta': 'Book Now',
+
+                'contact.bookWidget': 'Check Availability Online',
+
+                'road2.eyebrow': 'Getting Here', 'road2.title': 'Well Connected in Imereti',
+                'road2.lede': "Ubisa Family Guesthouse sits right by the E60, roughly 50–55 km from Kutaisi and about 200 km from Tbilisi — an easy stop whether you're passing through or staying a while.",
+                'road2.byCar': 'By Car',
+                'road2.byCarText': "From Tbilisi, follow the E60 west; the drive takes around 2.5–3 hours. From Kutaisi, it's about an hour. Free parking is available right at the house.",
+                'road2.byPublic': 'By Public Transport',
+                'road2.byPublicText': "Marshrutkas heading from Tbilisi toward Kutaisi pass through Ubisa — just ask the driver to stop there. Let us know your arrival time and we're happy to help you find the way from the main road.",
+
+                'road2.e60': 'E60 Highway', 'road2.e60dist': '2 min', 'road2.airport': 'Kutaisi Airport',
+
+
+
+                'reviews.title': 'Guest Reviews', 'reviews.based': 'Based on Google Reviews',
+                'reviews.lede': 'See what our guests from all over the world have to say about their stay at Ubisa Family Guesthouse.',
+                'reviews.write': 'Write a Review', 'reviews.localGuide': 'Local Guide',
+                'reviews.bookingEmpty': 'See the latest guest reviews for Ubisa Family Guesthouse directly on Booking.com.',
+                'reviews.bookingCta': 'See Reviews on Booking.com',
+                'reviews.airbnbEmpty': 'See the latest guest reviews for Ubisa Family Guesthouse directly on Airbnb.',
+                'reviews.airbnbCta': 'See Reviews on Airbnb',
+                'reviews.exampleBadge': 'Example', 'reviews.guestLabel': 'Guest Name', 'reviews.verifiedGuest': 'Verified Guest',
+                'reviews.bookingPlaceholder1': '"We would definitely come back. Highly recommended!"',
+                'reviews.bookingPlaceholder2': '"It was just an overnight stay in between a long car ride."',
+                'reviews.bookingPlaceholder3': '"We absolutely loved this place! It felt like we stayed at our grandma\'s."',
+                'reviews.bookingPlaceholder4': '"Would recommend, but be careful driving there at night. Amazing view!"',
+                'reviews.airbnbPlaceholder1': '"[Add a real quote from one of your Airbnb reviews here]"',
+                'reviews.airbnbPlaceholder2': '"[Add a real quote from one of your Airbnb reviews here]"',
+                'reviews.airbnbPlaceholder3': '"[Add a real quote from one of your Airbnb reviews here]"',
+                'reviews.airbnbPlaceholder4': '"[Add a real quote from one of your Airbnb reviews here]"',
+                'reviews.count2': '2 reviews', 'reviews.count5': '5 reviews', 'reviews.count12': '12 reviews',
+                'divider.title': 'Unwind in <span class="text-[#E8720C]">Ubisa</span>',
+                'contact.title': 'Get in Touch',
+                'contact.lede': 'We are conveniently located just 50-55 km from Kutaisi, near the E60 highway. Ready to book your stay?',
+                'contact.geo': 'Georgia (GEO)', 'contact.de': 'Germany (DE)', 'contact.email': 'Email Us',
+                'contact.chat': 'Chat & Book Direct',
+                'footer.tagline': 'Ubisa, Imereti, Georgia — 50–55 km from Kutaisi',
+                'footer.linksTitle': 'Quick Links',
+                'footer.connectTitle': 'Find Us & Connect',
+                'footer.copy': '&copy; 2026 Ubisa Family Guesthouse. All rights reserved.',
+            },
+            de: {
+                'nav.about': 'Über uns', 'nav.rooms': 'Zimmer', 'nav.experience': 'Erlebnis', 'nav.location': 'Lage',
+                'nav.book': 'Jetzt buchen', 'nav.bookWa': 'Über WhatsApp buchen',
+                'hero.badge': 'WILLKOMMEN IN UNSEREM',
+                'hero.title': 'Authentisches georgisches <br/><span class="text-[#E8720C] italic">Gasthaus</span>',
+                'hero.lede': 'Entfliehen Sie der Stadt und entspannen Sie in unserem familiengeführten Gasthaus. Genießen Sie hausgemachten Wein, Bergblick und den echten Geschmack Georgiens.',
+                'hero.explore': 'Mehr entdecken',
+                'about.eyebrow': 'Unsere Geschichte',
+                'about.title': 'Ein Zuhause auf Zeit in den Bergen',
+                'about.p1': 'Nur 50–55 km von Kutaissi entfernt und in der Nähe der E60-Autobahn ist das <strong>Ubisa Family Guesthouse</strong> der perfekte Zwischenstopp auf Ihrem georgischen Roadtrip oder ein gezielter Rückzugsort aus dem Stadtleben.',
+                'about.p2': 'Bei uns erleben Sie authentisches lokales Leben. Meine Familie kocht köstliche georgische Gerichte, darunter unser berühmtes Khachapuri, und stellt selbst Wein her. Ob Wandern, Angeln oder einfach Entspannen auf der Terrasse — unsere Türen stehen offen.',
+                'about.capacityLabel': 'Kapazität', 'about.capacityValue': 'Bis zu 8 Gäste',
+                'about.f1': 'Familiengeführt', 'about.f2': 'Bergblick', 'about.f3': 'Hausgemachter Wein', 'about.f4': 'Kostenloses WLAN',
+                'rooms.eyebrow': 'Unterkunft', 'rooms.title': 'Unsere komfortablen Zimmer',
+                'rooms.lede': 'Wir haben drei geräumige Schlafzimmer — ideal für Paare, Familien oder Gruppen bis zu 8 Personen. Jedes Zimmer verfügt über eine Sitzecke und Bergblick.',
+                'rooms.check': 'Verfügbarkeit prüfen &rarr;',
+                'rooms.r1.title': 'Doppelzimmer mit eigenem Bad',
+                'rooms.r1.desc': 'Ein gemütliches Zimmer mit bequemem Doppelbett, Sitzecke und Zugang zu einem gemeinsamen Balkon mit herrlicher Aussicht.',
+                'rooms.r1.guests': '<i class="fa-solid fa-user-group mr-2"></i>2 Gäste + Kind',
+                'rooms.r2.title': 'Doppelzimmer',
+                'rooms.r2.desc': 'Geräumige Unterkunft, ideal für Familien. Mit Sitzecke und viel natürlichem Licht.',
+                'rooms.r2.guests': '<i class="fa-solid fa-user-group mr-2"></i>2 Gäste',
+                'rooms.r3.title': 'Zweibettzimmer',
+                'rooms.r3.desc': 'Ideal für Freunde oder Alleinreisende, mit bequemen Einzelbetten und entspannter Atmosphäre.',
+                'rooms.r3.guests': '<i class="fa-solid fa-user-group mr-2"></i>2 Gäste',                'book.eyebrow': 'Verfügbarkeit', 'book.title': 'Jetzt buchen',
+                'book.lede': 'Prüfen Sie die Verfügbarkeit und buchen Sie direkt bei uns — ohne Gebühren, bester Preis garantiert.',
+
+                'floatBook.cta': 'Jetzt buchen',
+
+                'contact.bookWidget': 'Online-Verfügbarkeit prüfen',
+
+                'road2.eyebrow': 'Anfahrt', 'road2.title': 'Gut erreichbar in Imereti',
+                'road2.lede': 'Ubisa Family Guesthouse liegt direkt an der E60, etwa 50–55 km von Kutaissi und rund 200 km von Tiflis entfernt — ein bequemer Stopp, egal ob auf der Durchreise oder für einen längeren Aufenthalt.',
+                'road2.byCar': 'Mit dem Auto',
+                'road2.byCarText': 'Von Tiflis aus auf der E60 Richtung Westen, die Fahrt dauert etwa 2,5–3 Stunden. Von Kutaissi sind es rund eine Stunde. Kostenlose Parkplätze gibt es direkt am Haus.',
+                'road2.byPublic': 'Mit öffentlichen Verkehrsmitteln',
+                'road2.byPublicText': 'Marschrutkas von Tiflis Richtung Kutaissi fahren durch Ubisa — einfach den Fahrer bitten, dort zu halten. Sag uns Bescheid, wann du ankommst, dann helfen wir dir gern, den Weg von der Hauptstraße zu finden.',
+
+                'road2.e60': 'E60-Autobahn', 'road2.e60dist': '2 Min.', 'road2.airport': 'Flughafen Kutaissi',
+
+
+
+                'reviews.title': 'Gästebewertungen', 'reviews.based': 'Basierend auf Google-Bewertungen',
+                'reviews.lede': 'Lesen Sie, was unsere Gäste aus aller Welt über ihren Aufenthalt im Ubisa Family Guesthouse sagen.',
+                'reviews.write': 'Bewertung schreiben', 'reviews.localGuide': 'Local Guide',
+                'reviews.bookingEmpty': 'Sieh dir die neuesten Gästebewertungen für Ubisa Family Guesthouse direkt auf Booking.com an.',
+                'reviews.bookingCta': 'Bewertungen auf Booking.com ansehen',
+                'reviews.airbnbEmpty': 'Sieh dir die neuesten Gästebewertungen für Ubisa Family Guesthouse direkt auf Airbnb an.',
+                'reviews.airbnbCta': 'Bewertungen auf Airbnb ansehen',
+                'reviews.exampleBadge': 'Beispiel', 'reviews.guestLabel': 'Name des Gastes', 'reviews.verifiedGuest': 'Verifizierter Gast',
+                'reviews.bookingPlaceholder1': '"Wir kommen definitiv wieder. Sehr zu empfehlen!"',
+                'reviews.bookingPlaceholder2': '"Es war nur eine Übernachtung zwischen einer langen Autofahrt."',
+                'reviews.bookingPlaceholder3': '"Wir haben diesen Ort geliebt! Es fühlte sich an, als wären wir bei unserer Oma."',
+                'reviews.bookingPlaceholder4': '"Sehr empfehlenswert, aber Vorsicht bei der nächtlichen Anfahrt. Toller Ausblick!"',
+                'reviews.airbnbPlaceholder1': '"[Hier ein echtes Zitat aus einer deiner Airbnb-Bewertungen einfügen]"',
+                'reviews.airbnbPlaceholder2': '"[Hier ein echtes Zitat aus einer deiner Airbnb-Bewertungen einfügen]"',
+                'reviews.airbnbPlaceholder3': '"[Hier ein echtes Zitat aus einer deiner Airbnb-Bewertungen einfügen]"',
+                'reviews.airbnbPlaceholder4': '"[Hier ein echtes Zitat aus einer deiner Airbnb-Bewertungen einfügen]"',
+                'reviews.count2': '2 Bewertungen', 'reviews.count5': '5 Bewertungen', 'reviews.count12': '12 Bewertungen',
+                'divider.title': 'Entspannen in <span class="text-[#E8720C]">Ubisa</span>',
+                'contact.title': 'Kontaktieren Sie uns',
+                'contact.lede': 'Wir liegen verkehrsgünstig nur 50–55 km von Kutaissi entfernt, nahe der E60. Bereit für Ihre Buchung?',
+                'contact.geo': 'Georgien (GEO)', 'contact.de': 'Deutschland (DE)', 'contact.email': 'Schreiben Sie uns',
+                'contact.chat': 'Chat & direkt buchen',
+                'footer.tagline': 'Ubisa, Imeretien, Georgien — 50–55 km von Kutaissi',
+                'footer.linksTitle': 'Schnellzugriff',
+                'footer.connectTitle': 'Finden & Verbinden',
+                'footer.copy': '&copy; 2026 Ubisa Family Guesthouse. Alle Rechte vorbehalten.',
+            },
+            ka: {
+                'nav.about': 'ჩვენ შესახებ', 'nav.rooms': 'ოთახები', 'nav.experience': 'გამოცდილება', 'nav.location': 'მდებარეობა',
+                'nav.book': 'დაჯავშნა', 'nav.bookWa': 'დაჯავშნა WhatsApp-ით',
+                'hero.badge': 'კეთილი იყოს თქვენი მობრძანება',
+                'hero.title': 'ავთენტური ქართული <br/><span class="text-[#E8720C] italic">სტუმართმოყვარეობა</span>',
+                'hero.lede': 'დაისვენეთ ქალაქის აურზაურისგან შორს, ჩვენს საოჯახო სასტუმროში. დააგემოვნეთ ჩვენი ღვინო, ისიამოვნეთ მთის ხედით და საქართველოს ნამდვილი გემოთი.',
+                'hero.explore': 'გაიგეთ მეტი',
+                'about.eyebrow': 'ჩვენი ისტორია',
+                'about.title': 'სახლი მთებში, შორს სახლისგან',
+                'about.p1': 'ქუთაისიდან სულ 50–55 კმ-ში და E60 ავტომაგისტრალის სიახლოვეს მდებარე <strong>Ubisa Family Guesthouse</strong> სრულყოფილი გაჩერებაა თქვენი მოგზაურობისთვის საქართველოში ან მშვიდი თავშესაფარი ქალაქური ცხოვრებისგან.',
+                'about.p2': 'გთავაზობთ ავთენტური ადგილობრივი ცხოვრების გამოცდილებას. ჩემი ოჯახი ამზადებს გემრიელ ქართულ კერძებს, მათ შორის ჩვენს ცნობილ ხაჭაპურს და შინაურ ღვინოს. გინდათ ლაშქრობა, თევზაობა თუ უბრალოდ დასვენება ტერასაზე — ჩვენი კარი ღიაა.',
+                'about.capacityLabel': 'ტევადობა', 'about.capacityValue': 'მაქსიმუმ 8 სტუმარი',
+                'about.f1': 'საოჯახო სასტუმრო', 'about.f2': 'მთის ხედი', 'about.f3': 'შინაური ღვინო', 'about.f4': 'უფასო WiFi',
+                'rooms.eyebrow': 'ოთახები', 'rooms.title': 'ჩვენი მყუდრო ოთახები',
+                'rooms.lede': 'გვაქვს სამი ვრცელი საძინებელი — შესაფერისი წყვილებისთვის, ოჯახებისთვის ან ჯგუფებისთვის 8 კაცამდე. თითოეულ ოთახს აქვს სავარძლების არეალი და მთის ხედი.',
+                'rooms.check': 'ხელმისაწვდომობის შემოწმება &rarr;',
+                'rooms.r1.title': 'ორადგილიანი ოთახი, საკუთარი აბაზანით',
+                'rooms.r1.desc': 'მყუდრო ოთახი ორადგილიანი საწოლით, სავარძლების არეალით და საერთო აივნის ხედით.',
+                'rooms.r1.guests': '<i class="fa-solid fa-user-group mr-2"></i>2 სტუმარი + ბავშვი',
+                'rooms.r2.title': 'ორადგილიანი ოთახი',
+                'rooms.r2.desc': 'ვრცელი ოთახი, იდეალური ოჯახებისთვის. სავარძლების არეალით და უამრავი ბუნებრივი სინათლით.',
+                'rooms.r2.guests': '<i class="fa-solid fa-user-group mr-2"></i>2 სტუმარი',
+                'rooms.r3.title': 'ორსაწოლიანი ოთახი',
+                'rooms.r3.desc': 'იდეალურია მეგობრებისთვის ან მარტო მოგზაურებისთვის, მყუდრო ატმოსფეროთი.',
+                'rooms.r3.guests': '<i class="fa-solid fa-user-group mr-2"></i>2 სტუმარი',                'book.eyebrow': 'ხელმისაწვდომობა', 'book.title': 'დაჯავშნეთ თქვენი დასვენება',
+                'book.lede': 'შეამოწმეთ ხელმისაწვდომობა და დაჯავშნეთ პირდაპირ ჩვენთან — საკომისიოს გარეშე, საუკეთესო ფასის გარანტიით.',
+
+                'floatBook.cta': 'დაჯავშნა',
+
+                'contact.bookWidget': 'ონლაინ ხელმისაწვდომობის შემოწმება',
+
+                'road2.eyebrow': 'როგორ მოვხვდეთ', 'road2.title': 'კარგად დაკავშირებული იმერეთში',
+                'road2.lede': 'Ubisa Family Guesthouse მდებარეობს პირდაპირ E60-ის გასწვრივ, ქუთაისიდან დაახლოებით 50–55 კმ-ში და თბილისიდან დაახლოებით 200 კმ-ში — მოსახერხებელი გაჩერება როგორც გავლისას, ისე უფრო ხანგრძლივი ყოფნისთვის.',
+                'road2.byCar': 'მანქანით',
+                'road2.byCarText': 'თბილისიდან გაყევით E60-ს დასავლეთის მიმართულებით, გზა დაახლოებით 2.5–3 საათს გრძელდება. ქუთაისიდან — დაახლოებით საათი. სახლთან პირდაპირ უფასო პარკინგია.',
+                'road2.byPublic': 'საზოგადოებრივი ტრანსპორტით',
+                'road2.byPublicText': 'მარშრუტკები თბილისიდან ქუთაისის მიმართულებით გაივლიან უბისაზე — უბრალოდ სთხოვეთ მძღოლს იქ გაჩერება. შეგვატყობინეთ ჩამოსვლის დრო და სიამოვნებით დაგეხმარებით მთავარი გზიდან სახლამდე მისვლაში.',
+
+                'road2.e60': 'E60 ავტომაგისტრალი', 'road2.e60dist': '2 წთ', 'road2.airport': 'ქუთაისის აეროპორტი',
+
+                'reviews.title': 'სტუმრების შეფასებები', 'reviews.based': 'Google-ის შეფასებების მიხედვით',
+                'reviews.lede': 'წაიკითხეთ, რას წერენ ჩვენი სტუმრები მთელი მსოფლიოდან Ubisa Family Guesthouse-ში დარჩენის შესახებ.',
+                'reviews.write': 'დაწერეთ შეფასება', 'reviews.localGuide': 'Local Guide',
+                'reviews.bookingEmpty': 'იხილეთ უახლესი სტუმრების შეფასებები Ubisa Family Guesthouse-ისთვის პირდაპირ Booking.com-ზე.',
+                'reviews.bookingCta': 'შეფასებების ნახვა Booking.com-ზე',
+                'reviews.airbnbEmpty': 'იხილეთ უახლესი სტუმრების შეფასებები Ubisa Family Guesthouse-ისთვის პირდაპირ Airbnb-ზე.',
+                'reviews.airbnbCta': 'შეფასებების ნახვა Airbnb-ზე',
+                'reviews.exampleBadge': 'მაგალითი', 'reviews.guestLabel': 'სტუმრის სახელი', 'reviews.verifiedGuest': 'დადასტურებული სტუმარი',
+                'reviews.bookingPlaceholder1': '"აუცილებლად დავბრუნდებით. მაგრად გირჩევთ!"',
+                'reviews.bookingPlaceholder2': '"ეს იყო უბრალოდ ღამის გასათევი გრძელი გზის შუაში."',
+                'reviews.bookingPlaceholder3': '"ეს ადგილი ძალიან მოგვეწონა! თითქოს ბებიასთან ვიყავით."',
+                'reviews.bookingPlaceholder4': '"გირჩევთ, მაგრამ ღამით სიფრთხილე გმართებთ მისვლისას. საოცარი ხედი!"',
+                'reviews.airbnbPlaceholder1': '"[ჩასვით რეალური ციტატა თქვენი Airbnb შეფასებებიდან]"',
+                'reviews.airbnbPlaceholder2': '"[ჩასვით რეალური ციტატა თქვენი Airbnb შეფასებებიდან]"',
+                'reviews.airbnbPlaceholder3': '"[ჩასვით რეალური ციტატა თქვენი Airbnb შეფასებებიდან]"',
+                'reviews.airbnbPlaceholder4': '"[ჩასვით რეალური ციტატა თქვენი Airbnb შეფასებებიდან]"',
+                'reviews.count2': '2 შეფასება', 'reviews.count5': '5 შეფასება', 'reviews.count12': '12 შეფასება',
+                'divider.title': 'დაისვენეთ <span class="text-[#E8720C]">უბისაში</span>',
+                'contact.title': 'დაგვიკავშირდით',
+                'contact.lede': 'მოსახერხებელ ადგილას ვართ, ქუთაისიდან სულ 50–55 კმ-ში, E60-ის სიახლოვეს. მზად ხართ დასაჯავშნად?',
+                'contact.geo': 'საქართველო (GEO)', 'contact.de': 'გერმანია (DE)', 'contact.email': 'მოგვწერეთ',
+                'contact.chat': 'ჩატი და პირდაპირი დაჯავშნა',
+                'footer.tagline': 'უბისა, იმერეთი, საქართველო — ქუთაისიდან 50–55 კმ',
+                'footer.linksTitle': 'სწრაფი ბმულები',
+                'footer.connectTitle': 'გვიპოვეთ და დაგვიკავშირდით',
+                'footer.copy': '&copy; 2026 Ubisa Family Guesthouse. ყველა უფლება დაცულია.',
+            }
+        };
+
+        function setLang(lang){
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (translations[lang][key] !== undefined){
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            document.documentElement.lang = lang;
+            ['lang-en','lang-de','lang-ka','lang-en-m','lang-de-m','lang-ka-m'].forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const isActive = id.includes(lang);
+                el.classList.toggle('active', isActive);
+                el.classList.toggle('text-gray-500', !isActive);
+            });
+        }
     </script>
 </body>
 </html>
