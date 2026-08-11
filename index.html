@@ -250,7 +250,7 @@
         </div>
     </section>
 
-    <!-- Rooms Section -->
+      <!-- Rooms Section -->
     <section id="rooms" class="py-20 bg-stone-50 border-t border-stone-100">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -258,67 +258,64 @@
                 <h3 data-i18n="rooms.title" class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Our Comfortable Rooms</h3>
                 <p data-i18n="rooms.lede" class="text-gray-600 text-lg">We have three spacious bedrooms, perfect for couples, families, or groups up to 8 people. Each room features a sitting area and mountain views.</p>
             </div>
-
+ 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Room 1 -->
-                <div class="group rounded-lg overflow-hidden border border-green-100 bg-white flex flex-col h-full hover:-translate-y-1">
-                    <div class="relative h-64 overflow-hidden bg-green-100 flex-shrink-0">
-                        <img src="source/room1.png" alt="Bedroom 1" class="w-full h-full object-cover transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="hidden absolute inset-0 items-center justify-center text-green-400">
-                            <i class="fa-solid fa-bed text-4xl"></i>
-                        </div>
-                        <div class="absolute top-4 right-4 bg-[#E8720C] px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
-                            95 Gel
-                        </div>
+                <div class="group relative rounded-lg overflow-hidden border border-green-100 h-[440px] flex flex-col justify-end">
+                    <img src="source/room1.png" alt="Bedroom 1" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden absolute inset-0 items-center justify-center text-green-400 bg-green-100">
+                        <i class="fa-solid fa-bed text-4xl"></i>
                     </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <h4 data-i18n="rooms.r1.title" class="text-xl font-serif font-bold text-gray-900 mb-2 min-h-[3.5rem]">Double Room Private Bathroom</h4>
-                        <p data-i18n="rooms.r1.desc" class="text-gray-600 text-sm mb-4 flex-1">A cozy room featuring a comfortable double bed, sitting area, and access to a shared balcony with stunning views.</p>
-                        <div class="flex justify-between items-center border-t border-gray-100 pt-4 mt-auto">
-                            <span data-i18n="rooms.r1.guests" class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests + Child</span>
-                            <a href="https://wa.me/995511106285" target="_blank" data-i18n="rooms.check" class="text-[#14532D] font-medium hover:text-[#0B3D21] text-sm">Check Availability &rarr;</a>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute top-4 right-4 bg-[#E8720C] px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
+                        95 Gel
+                    </div>
+                    <div class="relative p-6 flex flex-col">
+                        <h4 data-i18n="rooms.r1.title" class="text-xl font-serif font-bold text-white mb-2">Double Room Private Bathroom</h4>
+                        <p data-i18n="rooms.r1.desc" class="text-white/85 text-sm mb-4">A cozy room featuring a comfortable double bed, sitting area, and access to a shared balcony with stunning views.</p>
+                        <div class="flex justify-between items-center border-t border-white/20 pt-4">
+                            <span data-i18n="rooms.r1.guests" class="text-sm text-white/85"><i class="fa-solid fa-user-group mr-2"></i>2 Guests + Child</span>
+                            <a href="#book" data-i18n="rooms.check" class="text-[#E8720C] font-medium hover:text-white text-sm">Check Availability &rarr;</a>
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- Room 2 -->
-                <div class="group rounded-lg overflow-hidden border border-green-100 bg-white flex flex-col h-full hover:-translate-y-1">
-                    <div class="relative h-64 overflow-hidden bg-green-100 flex-shrink-0">
-                        <img src="source/room2.png" alt="Bedroom 2" class="w-full h-full object-cover transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="hidden absolute inset-0 items-center justify-center text-green-400">
-                            <i class="fa-solid fa-bed text-4xl"></i>
-                        </div>
-                        <div class="absolute top-4 right-4 bg-[#E8720C] px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
-                            75 Gel
-                        </div>
+                <div class="group relative rounded-lg overflow-hidden border border-green-100 h-[440px] flex flex-col justify-end">
+                    <img src="source/room2.png" alt="Bedroom 2" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden absolute inset-0 items-center justify-center text-green-400 bg-green-100">
+                        <i class="fa-solid fa-bed text-4xl"></i>
                     </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <h4 data-i18n="rooms.r2.title" class="text-xl font-serif font-bold text-gray-900 mb-2 min-h-[3.5rem]">Double Room</h4>
-                        <p data-i18n="rooms.r2.desc" class="text-gray-600 text-sm mb-4 flex-1">Spacious accommodation perfect for families. Includes a sitting area and plenty of natural light.</p>
-                        <div class="flex justify-between items-center border-t border-gray-100 pt-4 mt-auto">
-                            <span data-i18n="rooms.r2.guests" class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests</span>
-                            <a href="https://wa.me/995511106285" target="_blank" data-i18n="rooms.check" class="text-[#14532D] font-medium hover:text-[#0B3D21] text-sm">Check Availability &rarr;</a>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute top-4 right-4 bg-[#E8720C] px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
+                        75 Gel
+                    </div>
+                    <div class="relative p-6 flex flex-col">
+                        <h4 data-i18n="rooms.r2.title" class="text-xl font-serif font-bold text-white mb-2">Double Room</h4>
+                        <p data-i18n="rooms.r2.desc" class="text-white/85 text-sm mb-4">Spacious accommodation perfect for families. Includes a sitting area and plenty of natural light.</p>
+                        <div class="flex justify-between items-center border-t border-white/20 pt-4">
+                            <span data-i18n="rooms.r2.guests" class="text-sm text-white/85"><i class="fa-solid fa-user-group mr-2"></i>2 Guests</span>
+                            <a href="#book" data-i18n="rooms.check" class="text-[#E8720C] font-medium hover:text-white text-sm">Check Availability &rarr;</a>
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- Room 3 -->
-                <div class="group rounded-lg overflow-hidden border border-green-100 bg-white flex flex-col h-full hover:-translate-y-1">
-                    <div class="relative h-64 overflow-hidden bg-green-100 flex-shrink-0">
-                        <img src="source/room3.png" alt="Bedroom 3" class="w-full h-full object-cover transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="hidden absolute inset-0 items-center justify-center text-green-400">
-                            <i class="fa-solid fa-bed text-4xl"></i>
-                        </div>
-                        <div class="absolute top-4 right-4 bg-[#E8720C] px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
-                            75 Gel
-                        </div>
+                <div class="group relative rounded-lg overflow-hidden border border-green-100 h-[440px] flex flex-col justify-end">
+                    <img src="source/room3.png" alt="Bedroom 3" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden absolute inset-0 items-center justify-center text-green-400 bg-green-100">
+                        <i class="fa-solid fa-bed text-4xl"></i>
                     </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <h4 data-i18n="rooms.r3.title" class="text-xl font-serif font-bold text-gray-900 mb-2 min-h-[3.5rem]">Twin Room</h4>
-                        <p data-i18n="rooms.r3.desc" class="text-gray-600 text-sm mb-4 flex-1">Ideal for friends or solo travelers, featuring comfortable twin beds and a relaxing atmosphere.</p>
-                        <div class="flex justify-between items-center border-t border-gray-100 pt-4 mt-auto">
-                            <span data-i18n="rooms.r3.guests" class="text-sm text-gray-500"><i class="fa-solid fa-user-group mr-2"></i>2 Guests</span>
-                            <a href="https://wa.me/995511106285" target="_blank" data-i18n="rooms.check" class="text-[#14532D] font-medium hover:text-[#0B3D21] text-sm">Check Availability &rarr;</a>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute top-4 right-4 bg-[#E8720C] px-3 py-1 rounded-full text-xl font-bold text-white shadow-sm">
+                        75 Gel
+                    </div>
+                    <div class="relative p-6 flex flex-col">
+                        <h4 data-i18n="rooms.r3.title" class="text-xl font-serif font-bold text-white mb-2">Twin Room</h4>
+                        <p data-i18n="rooms.r3.desc" class="text-white/85 text-sm mb-4">Ideal for friends or solo travelers, featuring comfortable twin beds and a relaxing atmosphere.</p>
+                        <div class="flex justify-between items-center border-t border-white/20 pt-4">
+                            <span data-i18n="rooms.r3.guests" class="text-sm text-white/85"><i class="fa-solid fa-user-group mr-2"></i>2 Guests</span>
+                            <a href="#book" data-i18n="rooms.check" class="text-[#E8720C] font-medium hover:text-white text-sm">Check Availability &rarr;</a>
                         </div>
                     </div>
                 </div>
